@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Abir Hasan — IoT & Embedded Systems Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<style>
+:root{--accent:#00c9a7;--accent2:#0077ff;--accent-glow:rgba(0,201,167,0.18);--radius:14px;--radius-sm:8px;--transition:0.3s cubic-bezier(0.4,0,0.2,1);--font-head:'Syne',sans-serif;--font-body:'DM Sans',sans-serif;--shadow:0 4px 32px rgba(0,0,0,0.18)}
+[data-theme="dark"]{--bg:#0d0f14;--bg2:#13161e;--bg3:#1a1e29;--bg4:#222739;--border:rgba(255,255,255,0.07);--text:#eef0f6;--text2:#8b90a7;--text3:#5a5f75;--card-bg:#13161e;--nav-bg:rgba(13,15,20,0.88)}
+[data-theme="light"]{--bg:#f5f6fa;--bg2:#ffffff;--bg3:#eef0f7;--bg4:#e3e6f0;--border:rgba(0,0,0,0.08);--text:#12141c;--text2:#5a6080;--text3:#9298b0;--card-bg:#ffffff;--nav-bg:rgba(245,246,250,0.9)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-body);background:var(--bg);color:var(--text);line-height:1.7;transition:background var(--transition),color var(--transition);overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;font-family:var(--font-body)}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--accent);border-radius:99px}
+::selection{background:var(--accent);color:#000}
+.container{max-width:1140px;margin:0 auto;padding:0 1.5rem}
+.section{padding:6rem 0}
+.section-label{font-family:var(--font-head);font-size:.72rem;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:.6rem}
+.section-title{font-family:var(--font-head);font-size:clamp(2rem,4vw,2.8rem);font-weight:800;line-height:1.15;color:var(--text);margin-bottom:1rem}
+.section-sub{color:var(--text2);max-width:560px;font-size:1rem;margin-bottom:3.5rem}
+.gradient-text{background:linear-gradient(135deg,var(--accent) 0%,var(--accent2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+#navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--nav-bg);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border);transition:background var(--transition),box-shadow var(--transition);height:64px}
+#navbar.scrolled{box-shadow:0 2px 24px rgba(0,0,0,.14)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{font-family:var(--font-head);font-weight:800;font-size:1.3rem;letter-spacing:-.5px}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;align-items:center;gap:.2rem;list-style:none}
+.nav-links a{font-size:.85rem;font-weight:500;color:var(--text2);padding:.4rem .75rem;border-radius:var(--radius-sm);transition:color var(--transition),background var(--transition)}
+.nav-links a:hover,.nav-links a.active{color:var(--accent);background:var(--accent-glow)}
+.nav-actions{display:flex;align-items:center;gap:.6rem}
+#theme-toggle{width:36px;height:36px;border:1px solid var(--border);border-radius:50%;background:var(--bg3);color:var(--text2);display:flex;align-items:center;justify-content:center;font-size:.85rem;transition:all var(--transition)}
+#theme-toggle:hover{color:var(--accent);border-color:var(--accent)}
+.nav-cta{font-size:.82rem;font-weight:600;padding:.45rem 1.1rem;border-radius:99px;background:var(--accent);color:#000;border:none;transition:opacity var(--transition),transform var(--transition);text-decoration:none;display:inline-flex;align-items:center}
+.nav-cta:hover{opacity:.88;transform:translateY(-1px)}
+#hamburger{display:none;width:36px;height:36px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--bg3);color:var(--text);font-size:1rem;align-items:center;justify-content:center}
+.mobile-menu{display:none;flex-direction:column;background:var(--bg2);border-bottom:1px solid var(--border);padding:1rem 1.5rem;gap:.3rem;position:fixed;top:64px;left:0;right:0;z-index:999}
+.mobile-menu.open{display:flex}
+.mobile-menu a{padding:.6rem .8rem;border-radius:var(--radius-sm);font-size:.9rem;color:var(--text2);font-weight:500;transition:background var(--transition),color var(--transition)}
+.mobile-menu a:hover{background:var(--bg3);color:var(--accent)}
+#hero{min-height:100vh;display:flex;align-items:center;padding-top:64px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
+.hero-orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.2}
+.orb1{width:600px;height:600px;background:var(--accent);top:-200px;right:-100px;animation:orbFloat 8s ease-in-out infinite}
+.orb2{width:400px;height:400px;background:var(--accent2);bottom:-100px;left:-100px;animation:orbFloat 10s ease-in-out infinite reverse}
+@keyframes orbFloat{0%,100%{transform:translate(0,0)}50%{transform:translate(20px,-30px)}}
+.hero-dots{position:absolute;inset:0;background-image:radial-gradient(circle,var(--text3) 1px,transparent 1px);background-size:32px 32px;opacity:.2}
+.hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr auto;align-items:center;gap:4rem;width:100%}
+.hero-content{max-width:620px}
+.hero-eyebrow{display:flex;align-items:center;gap:.75rem;margin-bottom:1.5rem;opacity:0;animation:fadeUp .7s ease .1s forwards}
+.eyebrow-line{width:32px;height:2px;background:var(--accent);border-radius:99px}
+.eyebrow-text{font-size:.85rem;color:var(--accent);font-weight:500;letter-spacing:1px}
+h1.hero-name{font-family:var(--font-head);font-size:clamp(3rem,7vw,5.5rem);font-weight:800;line-height:1.0;letter-spacing:-2px;margin-bottom:.5rem;opacity:0;animation:fadeUp .7s ease .2s forwards}
+.hero-tagline{font-family:var(--font-head);font-size:clamp(1.1rem,2.5vw,1.5rem);font-weight:600;color:var(--text2);margin-bottom:1.5rem;opacity:0;animation:fadeUp .7s ease .3s forwards}
+.hero-desc{color:var(--text2);font-size:1rem;line-height:1.8;max-width:500px;margin-bottom:2.5rem;opacity:0;animation:fadeUp .7s ease .4s forwards}
+.hero-btns{display:flex;gap:.85rem;flex-wrap:wrap;opacity:0;animation:fadeUp .7s ease .5s forwards}
+.btn{display:inline-flex;align-items:center;gap:.5rem;font-size:.88rem;font-weight:600;padding:.75rem 1.6rem;border-radius:99px;border:none;transition:all var(--transition);cursor:pointer;text-decoration:none;font-family:var(--font-body)}
+.btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;box-shadow:0 4px 18px rgba(0,201,167,.3)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,201,167,.4)}
+.btn-ghost{background:var(--bg3);color:var(--text);border:1px solid var(--border)}
+.btn-ghost:hover{background:var(--bg4);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:var(--accent);border:1.5px solid var(--accent)}
+.btn-outline:hover{background:var(--accent-glow);transform:translateY(-2px)}
+.hero-image-wrap{opacity:0;animation:fadeIn .9s ease .5s forwards;flex-shrink:0}
+.hero-avatar{width:300px;height:300px;border-radius:30px;background:linear-gradient(135deg,var(--bg3) 0%,var(--bg4) 100%);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,.3)}
+.hero-avatar::before{content:'';position:absolute;inset:-2px;border-radius:32px;background:linear-gradient(135deg,var(--accent),var(--accent2),transparent,transparent);z-index:-1;opacity:.4}
+.hero-status{position:absolute;bottom:-1rem;right:-1rem;background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:.6rem 1rem;display:flex;align-items:center;gap:.5rem;font-size:.78rem;font-weight:500;color:var(--text2);box-shadow:var(--shadow)}
+.status-dot2{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 8px #22c55e;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.4);opacity:.7}}
+.hero-stats{display:flex;gap:2rem;margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--border);opacity:0;animation:fadeUp .7s ease .65s forwards}
+.stat-item{display:flex;flex-direction:column}
+.stat-num{font-family:var(--font-head);font-size:1.6rem;font-weight:800;color:var(--text);line-height:1}
+.stat-num span{color:var(--accent)}
+.stat-lbl{font-size:.75rem;color:var(--text3);margin-top:.25rem}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+#about{background:var(--bg)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.about-text p{color:var(--text2);font-size:.97rem;line-height:1.85;margin-bottom:1.2rem}
+.about-text p strong{color:var(--text);font-weight:500}
+.about-cards{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.info-card{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:1.3rem;display:flex;flex-direction:column;gap:.5rem;transition:border-color var(--transition),transform var(--transition),box-shadow var(--transition)}
+.info-card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 8px 28px var(--accent-glow)}
+.info-card i{font-size:1.3rem;color:var(--accent);margin-bottom:.2rem}
+.info-card-title{font-family:var(--font-head);font-size:.78rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text3)}
+.info-card-value{font-size:.9rem;font-weight:500;color:var(--text)}
+#skills{background:var(--bg2)}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem}
+.skill-category{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:1.8rem;transition:border-color var(--transition),box-shadow var(--transition)}
+.skill-category:hover{border-color:rgba(0,201,167,.3);box-shadow:0 8px 36px rgba(0,201,167,.07)}
+.skill-cat-icon{width:44px;height:44px;border-radius:10px;background:var(--accent-glow);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:1rem}
+.skill-cat-title{font-family:var(--font-head);font-size:.82rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text3);margin-bottom:1.2rem}
+.skill-tags{display:flex;flex-wrap:wrap;gap:.5rem}
+.skill-tag{font-size:.8rem;padding:.3rem .8rem;border-radius:99px;background:var(--bg3);color:var(--text2);border:1px solid var(--border);font-weight:500;transition:all var(--transition);cursor:default}
+.skill-tag:hover{background:var(--accent-glow);color:var(--accent);border-color:rgba(0,201,167,.3)}
+#projects{background:var(--bg)}
+.filter-row{display:flex;gap:.6rem;margin-bottom:2.5rem;flex-wrap:wrap}
+.filter-btn{font-size:.8rem;font-weight:600;padding:.45rem 1.1rem;border-radius:99px;border:1px solid var(--border);background:var(--bg2);color:var(--text2);transition:all var(--transition);cursor:pointer;font-family:var(--font-body)}
+.filter-btn:hover,.filter-btn.active{background:var(--accent);color:#000;border-color:var(--accent)}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem}
+.project-card{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all var(--transition);display:flex;flex-direction:column}
+.project-card:hover{transform:translateY(-5px);border-color:rgba(0,201,167,.3);box-shadow:0 16px 48px rgba(0,0,0,.18)}
+.project-card.hidden{display:none}
+.project-thumb{height:170px;background:linear-gradient(135deg,var(--bg3),var(--bg4));display:flex;align-items:center;justify-content:center;font-size:3.5rem;position:relative;overflow:hidden}
+.project-thumb::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,201,167,.08),rgba(0,119,255,.08))}
+.project-category-badge{position:absolute;top:1rem;right:1rem;font-size:.68rem;font-weight:600;padding:.25rem .65rem;border-radius:99px;background:rgba(0,0,0,.5);color:#fff;letter-spacing:.5px;text-transform:uppercase;backdrop-filter:blur(4px)}
+.project-body{padding:1.5rem;flex:1;display:flex;flex-direction:column}
+.project-title{font-family:var(--font-head);font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:.6rem}
+.project-desc{font-size:.85rem;color:var(--text2);line-height:1.7;margin-bottom:1.1rem;flex:1}
+.project-tech{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.2rem}
+.tech-tag{font-size:.68rem;font-weight:600;padding:.2rem .6rem;border-radius:4px;background:var(--bg3);color:var(--accent);letter-spacing:.3px}
+.project-links{display:flex;gap:.6rem}
+.project-link{flex:1;display:flex;align-items:center;justify-content:center;gap:.4rem;font-size:.78rem;font-weight:600;padding:.5rem;border-radius:var(--radius-sm);border:1px solid var(--border);background:var(--bg3);color:var(--text2);transition:all var(--transition);cursor:pointer;text-decoration:none}
+.project-link:hover{background:var(--accent);color:#000;border-color:var(--accent)}
+#achievements{background:var(--bg2)}
+.timeline{position:relative;max-width:720px;margin:0 auto}
+.timeline::before{content:'';position:absolute;left:18px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--accent),var(--accent2),transparent)}
+.timeline-item{display:flex;gap:1.8rem;padding-bottom:2.5rem;opacity:0;transform:translateX(-20px);transition:opacity .5s ease,transform .5s ease}
+.timeline-item.visible{opacity:1;transform:translateX(0)}
+.timeline-dot{flex-shrink:0;width:38px;height:38px;border-radius:50%;background:var(--bg2);border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:.88rem;z-index:1;position:relative;margin-top:.1rem;box-shadow:0 0 0 4px var(--bg2),0 0 0 6px rgba(0,201,167,.15)}
+.timeline-content{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:1.3rem 1.5rem;flex:1;transition:border-color var(--transition)}
+.timeline-content:hover{border-color:rgba(0,201,167,.3)}
+.timeline-date{font-size:.72rem;font-weight:600;color:var(--accent);letter-spacing:1px;text-transform:uppercase;margin-bottom:.3rem}
+.timeline-title{font-family:var(--font-head);font-size:1rem;font-weight:700;color:var(--text);margin-bottom:.3rem}
+.timeline-body{font-size:.85rem;color:var(--text2);line-height:1.7}
+#github{background:var(--bg)}
+.github-card{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:2.5rem;text-align:center}
+.github-graph{background:var(--bg3);border-radius:var(--radius-sm);padding:1.5rem;margin:1.5rem 0;overflow-x:auto}
+.contrib-row{display:flex;gap:3px}
+.contrib-col{display:flex;flex-direction:column;gap:3px}
+.contrib-cell{width:12px;height:12px;border-radius:2px;background:var(--bg4);flex-shrink:0}
+.contrib-cell.l1{background:rgba(0,201,167,.2)}
+.contrib-cell.l2{background:rgba(0,201,167,.4)}
+.contrib-cell.l3{background:rgba(0,201,167,.65)}
+.contrib-cell.l4{background:var(--accent)}
+.github-stats-row{display:flex;justify-content:center;gap:3rem;margin-top:1.5rem;flex-wrap:wrap}
+.gh-stat{text-align:center}
+.gh-stat-num{font-family:var(--font-head);font-size:1.8rem;font-weight:800;color:var(--text)}
+.gh-stat-lbl{font-size:.75rem;color:var(--text3);margin-top:.2rem}
+#blog{background:var(--bg2)}
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem}
+.blog-card{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all var(--transition);cursor:pointer;display:flex;flex-direction:column}
+.blog-card:hover{transform:translateY(-4px);border-color:rgba(0,201,167,.3);box-shadow:0 12px 40px rgba(0,0,0,.14)}
+.blog-thumb{height:140px;display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative}
+.blog-body{padding:1.4rem;flex:1;display:flex;flex-direction:column}
+.blog-meta{display:flex;align-items:center;gap:.75rem;margin-bottom:.8rem}
+.blog-tag{font-size:.68rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:1px}
+.blog-date{font-size:.72rem;color:var(--text3)}
+.blog-title{font-family:var(--font-head);font-size:1rem;font-weight:700;color:var(--text);line-height:1.4;margin-bottom:.6rem}
+.blog-excerpt{font-size:.83rem;color:var(--text2);line-height:1.7;flex:1;margin-bottom:1rem}
+.blog-read{font-size:.8rem;font-weight:600;color:var(--accent);display:flex;align-items:center;gap:.35rem}
+.blog-read i{font-size:.7rem;transition:transform var(--transition)}
+.blog-card:hover .blog-read i{transform:translateX(3px)}
+#contact{background:var(--bg)}
+.contact-wrapper{display:grid;grid-template-columns:1fr 1.4fr;gap:4rem;align-items:start}
+.contact-info-title{font-family:var(--font-head);font-size:1.6rem;font-weight:800;margin-bottom:1rem;line-height:1.3}
+.contact-info-text{font-size:.9rem;color:var(--text2);line-height:1.8;margin-bottom:2rem}
+.contact-links{display:flex;flex-direction:column;gap:.75rem}
+.contact-link-item{display:flex;align-items:center;gap:1rem;padding:.9rem 1.1rem;background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);transition:all var(--transition);color:var(--text2);font-size:.88rem;font-weight:500}
+.contact-link-item:hover{border-color:var(--accent);color:var(--accent);transform:translateX(4px)}
+.contact-link-icon{width:36px;height:36px;border-radius:var(--radius-sm);background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:1rem;color:var(--accent);flex-shrink:0}
+.social-row{display:flex;gap:.6rem;margin-top:1.5rem}
+.social-icon{width:40px;height:40px;border-radius:50%;border:1px solid var(--border);background:var(--card-bg);display:flex;align-items:center;justify-content:center;color:var(--text2);font-size:1rem;transition:all var(--transition)}
+.social-icon:hover{background:var(--accent);color:#000;border-color:var(--accent);transform:translateY(-2px)}
+.contact-form{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:2rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-group{margin-bottom:1.2rem}
+.form-label{display:block;font-size:.8rem;font-weight:600;color:var(--text2);margin-bottom:.45rem;letter-spacing:.5px}
+.form-input,.form-textarea{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-family:var(--font-body);font-size:.9rem;padding:.75rem 1rem;outline:none;transition:border-color var(--transition),box-shadow var(--transition);resize:none}
+.form-input:focus,.form-textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-glow)}
+.form-textarea{min-height:130px}
+.form-submit{width:100%;justify-content:center}
+.form-success{display:none;text-align:center;color:var(--accent);padding:1rem;font-weight:500}
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:2rem 0}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-copy{font-size:.82rem;color:var(--text3)}
+.footer-copy span{color:var(--accent)}
+.footer-links{display:flex;gap:1.5rem}
+.footer-links a{font-size:.82rem;color:var(--text3);transition:color var(--transition)}
+.footer-links a:hover{color:var(--accent)}
+#scroll-top{position:fixed;bottom:1.8rem;right:1.8rem;width:44px;height:44px;border-radius:50%;background:var(--accent);color:#000;border:none;display:flex;align-items:center;justify-content:center;font-size:1rem;cursor:pointer;opacity:0;pointer-events:none;transform:translateY(12px);transition:all var(--transition);z-index:999;box-shadow:0 4px 18px rgba(0,201,167,.4)}
+#scroll-top.visible{opacity:1;pointer-events:all;transform:translateY(0)}
+#scroll-top:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(0,201,167,.5)}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+@media(max-width:900px){.hero-inner{grid-template-columns:1fr;text-align:center}.hero-btns{justify-content:center}.hero-eyebrow{justify-content:center}.hero-image-wrap{display:none}.hero-stats{justify-content:center}.about-grid{grid-template-columns:1fr}.contact-wrapper{grid-template-columns:1fr;gap:2.5rem}}
+@media(max-width:700px){.nav-links{display:none}.nav-cta{display:none}#hamburger{display:flex}.section{padding:4rem 0}.form-row{grid-template-columns:1fr}.about-cards{grid-template-columns:1fr 1fr}.hero-stats{gap:1.2rem}.footer-inner{flex-direction:column;text-align:center}}
+@media(max-width:480px){.about-cards{grid-template-columns:1fr}.projects-grid{grid-template-columns:1fr}.blog-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">Abir<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button id="albumBtn" aria-label="Album" title="Photo Album" style="display:flex;align-items:center;gap:.4rem;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#000;border:none;font-size:.78rem;font-weight:700;padding:.42rem .9rem;border-radius:99px;cursor:pointer;font-family:var(--font-body);white-space:nowrap;transition:opacity .2s" onmouseover="this.style.opacity='.82'" onmouseout="this.style.opacity='1'"><i class="fa-solid fa-images"></i> Album</button>
+        <button id="theme-toggle" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+        <a href="#contact" class="btn nav-cta">Hire Me</a>
+        <button id="hamburger" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#hero">Home</a><a href="#about">About</a><a href="#skills">Skills</a>
+  <a href="#projects">Projects</a><a href="#achievements">Achievements</a>
+  <a href="#blog">Blog</a><a href="#contact">Contact</a>
+</div>
+
+<section id="hero">
+  <div class="hero-bg">
+    <div class="hero-dots"></div>
+    <div class="hero-orb orb1"></div>
+    <div class="hero-orb orb2"></div>
+  </div>
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <div class="eyebrow-line"></div>
+          <span class="eyebrow-text">Computer Science Student</span>
+        </div>
+        <h1 class="hero-name"> Kazi Abir<br/><span class="gradient-text">Hasan</span></h1>
+        <div class="hero-tagline">IoT &amp; Embedded Systems Developer</div>
+        <p class="hero-desc">Building intelligent systems that bridge the physical and digital worlds — combining hardware expertise with software craftsmanship to create real-world IoT solutions that actually matter.</p>
+        <div class="hero-btns">
+          <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-rocket"></i> View Projects</a>
+          <a href="#contact" class="btn btn-ghost"><i class="fa-solid fa-envelope"></i> Contact Me</a>
+          <a href="https://drive.google.com/uc?export=download&id=1ofC5WdcspEHl1ugsIQei2_bu_kNqQWtd" class="btn btn-outline" id="download-cv" target="_blank"><i class="fa-solid fa-download"></i> Download CV</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item"><div class="stat-num">4<span>+</span></div><div class="stat-lbl">Projects Built</div></div>
+          <div class="stat-item"><div class="stat-num">3<span>+</span></div><div class="stat-lbl">Technologies</div></div>
+          <div class="stat-item"><div class="stat-num">2<span>+</span></div><div class="stat-lbl">Years Learning</div></div>
+          <div class="stat-item"><div class="stat-num">1<span>+</span></div><div class="stat-lbl">Research Focus</div></div>
+        </div>
+      </div>
+      <div class="hero-image-wrap">
+        <div class="hero-avatar">
+          <img src="https://drive.google.com/thumbnail?id=1n7b9pYwC6HkEAeapaTdS88EQqE_G6JX8&sz=w600" alt="Abir Hasan" style="width:100%;height:100%;object-fit:cover;border-radius:28px;display:block"/>
+          <div class="hero-status"><div class="status-dot2"></div>Available for opportunities</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="section-label reveal">Who I Am</div>
+        <h2 class="section-title reveal reveal-delay-1">Passionate about<br/><span class="gradient-text">Intelligent Systems</span></h2>
+        <div class="reveal reveal-delay-2">
+          <p>I'm <strong>Kazi Abir Hasan</strong>, a Computer Science student with a deep passion for <strong>IoT systems</strong> and <strong>embedded software development</strong>. I love working at the intersection of hardware and software — designing systems that sense, process, and respond to the real world in meaningful ways.</p>
+          <p>My interests span <strong>robotics</strong>, <strong>AI-driven solutions</strong>, and <strong>real-world problem solving</strong>. I believe technology should create tangible impact, whether that's monitoring environmental conditions with smart sensors, automating physical processes, or making data-driven decisions at the edge.</p>
+          <p>Currently exploring <strong>machine learning</strong> integration with embedded hardware, and actively looking to collaborate on projects that push the boundaries of what connected systems can do.</p>
+        </div>
+      </div>
+      <div class="about-cards reveal reveal-delay-1">
+        <div class="info-card"><i class="fa-solid fa-location-dot"></i><div class="info-card-title">Location</div><div class="info-card-value">Bangladesh 🇧🇩</div></div>
+        <div class="info-card"><i class="fa-solid fa-graduation-cap"></i><div class="info-card-title">Education</div><div class="info-card-value">CSE Undergraduate</div></div>
+        <div class="info-card"><i class="fa-solid fa-flask"></i><div class="info-card-title">Research Interest</div><div class="info-card-value">IoT &amp; Edge AI</div></div>
+        <div class="info-card"><i class="fa-solid fa-handshake"></i><div class="info-card-title">Collaboration</div><div class="info-card-value">Open to Work</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="section">
+  <div class="container">
+    <div class="section-label reveal">Expertise</div>
+    <h2 class="section-title reveal reveal-delay-1">Skills &amp; <span class="gradient-text">Technologies</span></h2>
+    <p class="section-sub reveal reveal-delay-2">A toolkit built through hands-on projects and continuous learning across hardware, software, and everything in between.</p>
+    <div class="skills-grid">
+      <div class="skill-category reveal">
+        <div class="skill-cat-icon"><i class="fa-solid fa-code"></i></div>
+        <div class="skill-cat-title">Programming</div>
+        <div class="skill-tags">
+          <span class="skill-tag">🐍 Python</span><span class="skill-tag">⚙️ C</span><span class="skill-tag">⚙️ Embedded C</span><span class="skill-tag">🌐 HTML</span>
+          <span class="skill-tag">🎨 CSS</span>
+          <span class="skill-tag">💻 Shell Scripting</span><span class="skill-tag">☕ Java</span><span class="skill-tag">📜 JavaScript</span><span class="skill-tag">🔧 C++</span>
+        </div>
+      </div>
+      <div class="skill-category reveal reveal-delay-1">
+        <div class="skill-cat-icon"><i class="fa-solid fa-microchip"></i></div>
+        <div class="skill-cat-title">Hardware / IoT</div>
+        <div class="skill-tags">
+          <span class="skill-tag">📡 ESP32</span><span class="skill-tag">🤖 Arduino</span><span class="skill-tag">📊 Sensors</span><span class="skill-tag">🔌 Microcontrollers</span><span class="skill-tag">🔋 Raspberry Pi</span>
+        </div>
+      </div>
+      <div class="skill-category reveal reveal-delay-2">
+        <div class="skill-cat-icon"><i class="fa-solid fa-brain"></i></div>
+        <div class="skill-cat-title">Technologies</div>
+        <div class="skill-tags">
+          <span class="skill-tag">🤖 Machine Learning</span><span class="skill-tag">🤖  Deep Learning</span><span class="skill-tag">🌐 Networking</span><span class="skill-tag">📦 Embedded Systems</span><span class="skill-tag">☁️ MQTT</span><span class="skill-tag">🔗 WebSocket</span>
+        </div>
+      </div>
+      <div class="skill-category reveal reveal-delay-3">
+        <div class="skill-cat-icon"><i class="fa-solid fa-wrench"></i></div>
+        <div class="skill-cat-title">Tools</div>
+        <div class="skill-tags">
+          <span class="skill-tag">🐙 Git / GitHub</span><span class="skill-tag">🐧 Linux</span><span class="skill-tag">📐 MATLAB</span><span class="skill-tag">🐳 Docker</span><span class="skill-tag">📝 VS Code</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="section">
+  <div class="container">
+    <div class="section-label reveal">Portfolio</div>
+    <h2 class="section-title reveal reveal-delay-1">Featured <span class="gradient-text">Projects</span></h2>
+    <p class="section-sub reveal reveal-delay-2">A selection of projects demonstrating my work across IoT, embedded systems, and web development. Additional projects exist but have been categorized separately and are therefore not included here.</p>
+    <div class="filter-row reveal">
+      <button class="filter-btn active" data-filter="all">All Projects</button>
+      <button class="filter-btn" data-filter="iot">IoT</button>
+      <button class="filter-btn" data-filter="embedded">Embedded</button>
+      <button class="filter-btn" data-filter="web">Web</button>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card reveal" data-category="iot">
+        <div class="project-thumb" style="background:linear-gradient(135deg,#0d2a22,#0d3a2a)">💧<span class="project-category-badge">IoT</span></div>
+        <div class="project-body">
+          <div class="project-title">Smart Water Monitoring System</div>
+          <p class="project-desc">IoT system using multiple sensors to monitor water quality parameters — pH, turbidity, temperature. Predicts water conditions using a machine learning model deployed at the edge.</p>
+          <div class="project-tech"><span class="tech-tag">ESP32</span><span class="tech-tag">Python</span><span class="tech-tag">MQTT</span><span class="tech-tag">ML</span><span class="tech-tag">Sensors</span></div>
+          <div class="project-links"><a href="https://github.com/abir930/SafePond_AI.git" class="project-link"><i class="fa-brands fa-github"></i> GitHub</a><a href="https://abir930.github.io/SafePond_AI/" class="project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a></div>
+        </div>
+      </div>
+      <div class="project-card reveal reveal-delay-1" data-category="iot">
+        <div class="project-thumb" style="background:linear-gradient(135deg,#1a1a2e,#16213e)">♟️<span class="project-category-badge">IoT</span></div>
+        <div class="project-body">
+          <div class="project-title">Smart Chess Board</div>
+          <p class="project-desc">ESP32-powered chess board that detects piece movement using Hall-Effect technology. Tracks game state, validates moves, and communicates with online chess platforms wirelessly.</p>
+          <p><strong>On Going....</strong></p><br>
+          <div class="project-tech"><span class="tech-tag">ESP32</span><span class="tech-tag">Sensors</span><span class="tech-tag">C++</span><span class="tech-tag">Bluetooth</span></div>
+          <div class="project-links"><a href="#" class="project-link"><i class="fa-brands fa-github"></i> GitHub</a><a href="#" class="project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a></div>
+        </div>
+      </div>
+      <div class="project-card reveal reveal-delay-2" data-category="web">
+        <div class="project-thumb" style="background:linear-gradient(135deg,#0d1b2a,#1b263b)">💬<span class="project-category-badge">Web</span></div>
+        <div class="project-body">
+          <div class="project-title">ChatBridge</div>
+          <p class="project-desc">Real-time anonymous chat platform built to support mental health discussions. Uses WebSocket for instant communication with privacy as a core design principle.</p>
+          <div class="project-tech"><span class="tech-tag">WebSocket</span><span class="tech-tag">Node.js</span><span class="tech-tag">JavaScript</span><span class="tech-tag">HTML/CSS</span></div>
+          <div class="project-links"><a href="#" class="project-link"><i class="fa-brands fa-github"></i> GitHub</a><a href="#" class="project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a></div>
+        </div>
+      </div>
+      <div class="project-card reveal" data-category="embedded">
+        <div class="project-thumb" style="background:linear-gradient(135deg,#1a0a0a,#2a1010)">🚦<span class="project-category-badge">Embedded</span></div>
+        <div class="project-body">
+          <div class="project-title">Density Based Traffic Signal</div>
+          <p class="project-desc">Intelligent traffic control system using microcontrollers and IR sensors. Dynamically adapts signal timing based on real-time traffic density to reduce congestion.</p>
+          <div class="project-tech"><span class="tech-tag">Arduino</span><span class="tech-tag">C</span><span class="tech-tag">IR Sensors</span><span class="tech-tag">Microcontroller</span></div>
+          <div class="project-links"><a href="#" class="project-link"><i class="fa-brands fa-github"></i> GitHub</a><a href="#" class="project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="achievements" class="section">
+  <div class="container">
+    <div class="section-label reveal">Track Record</div>
+    <h2 class="section-title reveal reveal-delay-1">Achievements &amp; <span class="gradient-text">Certifications</span></h2>
+    <p class="section-sub reveal reveal-delay-2">Milestones from academic work, workshops, certifications, and research contributions.</p>
+
+    
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"><i class="fa-solid fa-trophy"></i></div>
+        <div class="timeline-content">
+          <div class="timeline-date">2026 — University Project</div>
+          <div class="timeline-title">Smart Water Monitoring System</div>
+          <div class="timeline-body">Developed an end-to-end IoT solution for monitoring water quality, combining hardware sensor arrays with a machine learning prediction model. Presented at the department's annual project showcase.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+  <div class="timeline-dot"><i class="fa-solid fa-briefcase"></i></div>
+  <div class="timeline-content">
+    <div class="timeline-date">2026 — Internship</div>
+    <div class="timeline-title">Firmware Developer Intern — Datasoft Manufacturing & Assembly Inc. Ltd.</div>
+    <div class="timeline-body">
+      Completed a 2-month internship as a Firmware Developer, working with embedded systems and microcontrollers. Gained hands-on experience in firmware development, hardware–software integration, debugging, and real-time system implementation.
+    </div>
+  </div>
+</div>
+      <div class="timeline-item">
+        <div class="timeline-dot"><i class="fa-solid fa-certificate"></i></div>
+        <div class="timeline-content">
+          <div class="timeline-date">2025 — Certification</div>
+          <div class="timeline-title">Python for Data Science &amp; AI — IBM / Coursera</div>
+          <div class="timeline-body">Completed IBM's Python for Data Science, AI &amp; Development certification, covering NumPy, Pandas, and foundational machine learning concepts.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+  <div class="timeline-dot"><i class="fa-solid fa-certificate"></i></div>
+  <div class="timeline-content">
+    <div class="timeline-date">2025 — Certification</div>
+    <div class="timeline-title">AWS Academy Cloud Foundations — AWS Academy</div>
+    <div class="timeline-body">
+      Completed the AWS Academy Cloud Foundations certification, covering core cloud computing concepts including AWS services, cloud architecture, security, and deployment fundamentals.
+    </div>
+  </div>
+</div>
+      <div class="timeline-item">
+        <div class="timeline-dot"><i class="fa-solid fa-microchip"></i></div>
+        <div class="timeline-content">
+          <div class="timeline-date">2024 — Workshop</div>
+          <div class="timeline-title">IoT Workshop — ESP32 &amp; Embedded Systems</div>
+          <div class="timeline-body">Hands-on workshop covering ESP32 programming, sensor integration, MQTT protocols, and cloud connectivity for production IoT applications.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+  <div class="timeline-dot"><i class="fa-solid fa-certificate"></i></div>
+  <div class="timeline-content">
+    <div class="timeline-date">2023 — Programming Contest</div>
+    <div class="timeline-title">TAKE-OFF Programming Contest (Final Round) — DIU CPC</div>
+    <div class="timeline-body">
+      Participated in the TAKE-OFF Programming Contest Spring 2023 Final Round organized by Daffodil International University Computer Programming Club (CPC), solving algorithmic and problem-solving challenges under competitive programming conditions.
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+</section>
+
+<section id="github" class="section">
+  <div class="container">
+    <div class="section-label reveal">Open Source</div>
+    <h2 class="section-title reveal reveal-delay-1">GitHub <span class="gradient-text">Activity</span></h2>
+    <div class="github-card reveal reveal-delay-2">
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;justify-content:center;flex-wrap:wrap">
+        <div style="display:flex;align-items:center;gap:.5rem">
+          <i class="fa-brands fa-github" style="font-size:1.5rem;color:var(--text)"></i>
+          <span style="font-family:var(--font-head);font-weight:700;font-size:1.1rem">github.com/abir930</span>
+        </div>
+        <a href="https://github.com/abir930" target="_blank" class="btn btn-ghost" style="padding:.4rem 1rem;font-size:.8rem"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Profile</a>
+      </div>
+      <div class="github-graph" id="contrib-graph"></div>
+      <div class="github-stats-row">
+        <div class="gh-stat"><div class="gh-stat-num" id="commits-count">0</div><div class="gh-stat-lbl">Total Commits</div></div>
+        <div class="gh-stat"><div class="gh-stat-num" id="repos-count">0</div><div class="gh-stat-lbl">Public Repositories</div></div>
+        <!--<div class="gh-stat"><div class="gh-stat-num" id="stars-count">0</div><div class="gh-stat-lbl">Stars Earned</div></div>-->
+        <div class="gh-stat"><div class="gh-stat-num" id="prs-count">0</div><div class="gh-stat-lbl">Pull Requests</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="blog" class="section">
+  <div class="container">
+    <div class="section-label reveal">Writing</div>
+    <h2 class="section-title reveal reveal-delay-1">Latest from the <span class="gradient-text">Blog</span></h2>
+    <p class="section-sub reveal reveal-delay-2">Thoughts, tutorials, and insights on IoT, embedded systems, and building intelligent hardware.</p>
+    <div class="blog-grid">
+      <div class="blog-card reveal">
+        <div class="blog-thumb" style="background:linear-gradient(135deg,#0d2a1a,#0a3a22)">📡</div>
+        <div class="blog-body">
+          <div class="blog-meta"><span class="blog-tag">IoT</span><span class="blog-date">Jan 12, 2025</span></div>
+          <div class="blog-title">Getting Started with IoT: From Idea to Working Prototype</div>
+          <p class="blog-excerpt">A practical guide to your first IoT project — choosing the right microcontroller, connecting sensors, and pushing data to the cloud with MQTT.</p>
+          <div class="blog-read">Read More <i class="fa-solid fa-arrow-right"></i></div>
+        </div>
+      </div>
+      <div class="blog-card reveal reveal-delay-1">
+        <div class="blog-thumb" style="background:linear-gradient(135deg,#1a1a0a,#2a2810)">⚡</div>
+        <div class="blog-body">
+          <div class="blog-meta"><span class="blog-tag">Embedded</span><span class="blog-date">Dec 5, 2024</span></div>
+          <div class="blog-title">Building Smart Systems with Microcontrollers</div>
+          <p class="blog-excerpt">Deep dive into ESP32 capabilities — Wi-Fi, Bluetooth, dual-core processing, and how to architect embedded firmware for reliability.</p>
+          <div class="blog-read">Read More <i class="fa-solid fa-arrow-right"></i></div>
+        </div>
+      </div>
+      <div class="blog-card reveal reveal-delay-2">
+        <div class="blog-thumb" style="background:linear-gradient(135deg,#0a1a2a,#0d2233)">🌱</div>
+        <div class="blog-body">
+          <div class="blog-meta"><span class="blog-tag">AI</span><span class="blog-date">Nov 20, 2024</span></div>
+          <div class="blog-title">AI in Agriculture: How IoT Is Changing Farming</div>
+          <p class="blog-excerpt">Exploring edge AI, environmental sensors, and smart irrigation systems enabling precision agriculture and sustainable food production.</p>
+          <div class="blog-read">Read More <i class="fa-solid fa-arrow-right"></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section">
+  <div class="container">
+    <div class="section-label reveal">Get in Touch</div>
+    <h2 class="section-title reveal reveal-delay-1">Let's <span class="gradient-text">Connect</span></h2>
+    <div class="contact-wrapper">
+      <div class="reveal">
+        <div class="contact-info-title">Have a project in mind?</div>
+        <p class="contact-info-text">Whether you're working on an IoT project, looking for a collaborator, have a research opportunity, or just want to talk hardware and software — I'd love to hear from you.</p>
+        <div class="contact-links">
+          <a href="/cdn-cgi/l/email-protection#0564676c776d6476646b68646d6c6b37373d456268646c692b666a68" class="contact-link-item"><div class="contact-link-icon"><i class="fa-solid fa-envelope"></i></div><span class="__cf_email__" data-cfemail="6504070c170d0416040b08040d0c0b57575d250208040c094b060a08">abirhasanmahin228@gmail.com</span></a>
+          <a href="https://github.com/abir930" class="contact-link-item" target="_blank"><div class="contact-link-icon"><i class="fa-brands fa-github"></i></div>github.com/abir930</a>
+          <a href="https://www.linkedin.com/in/abir-hasan-mahin-552a61374/" class="contact-link-item" target="_blank"><div class="contact-link-icon"><i class="fa-brands fa-linkedin"></i></div>LinkedIn</a>
+          <a href="https://www.facebook.com/abirhasanmahin.mahin/" class="contact-link-item" target="_blank"><div class="contact-link-icon"><i class="fa-brands fa-facebook"></i></div>Facebook</a>
+        </div>
+        <div class="social-row">
+          <a href="https://github.com/abir930" class="social-icon" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/abir-hasan-mahin-552a61374/" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="https://www.facebook.com/abirhasanmahin.mahin/" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+        </div>
+      </div>
+      <div class="contact-form reveal reveal-delay-1">
+        <form id="contactForm">
+          <div class="form-row">
+            <div class="form-group"><label class="form-label" for="fname">Name</label><input class="form-input" type="text" id="fname" placeholder="Your name" required/></div>
+            <div class="form-group"><label class="form-label" for="femail">Email</label><input class="form-input" type="email" id="femail" placeholder="your@email.com" required/></div>
+          </div>
+          <div class="form-group"><label class="form-label" for="fsubject">Subject</label><input class="form-input" type="text" id="fsubject" placeholder="What's this about?"/></div>
+          <div class="form-group"><label class="form-label" for="fmsg">Message</label><textarea class="form-textarea" id="fmsg" placeholder="Tell me about your project or idea..." required></textarea></div>
+          <button type="submit" class="btn btn-primary form-submit" id="submitBtn"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+          <div class="form-success" id="formSuccess">✅ Message sent! I'll get back to you within 24 hours.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ALBUM MODAL -->
+<div id="albumModal" style="display:none;position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.92);backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:1rem">
+  <div style="background:var(--bg2);border:1px solid var(--border);border-radius:20px;width:100%;max-width:900px;max-height:90vh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,.6)">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:1.2rem 1.6rem;border-bottom:1px solid var(--border)">
+      <div style="display:flex;align-items:center;gap:.75rem">
+        <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;color:#000;font-size:1rem"><i class="fa-solid fa-images"></i></div>
+        <div>
+          <div style="font-family:var(--font-head);font-weight:800;font-size:1.05rem;color:var(--text)">My Album</div>
+         <!-- <div style="font-size:.72rem;color:var(--text3);margin-top:.1rem">Synced from Google Drive</div>-->
+        </div>
+      </div>
+      <button id="albumClose" style="width:36px;height:36px;border-radius:50%;border:1px solid var(--border);background:var(--bg3);color:var(--text2);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s" onmouseover="this.style.background='var(--bg4)'" onmouseout="this.style.background='var(--bg3)'"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div style="flex:1;overflow-y:auto;padding:1.5rem;min-height:300px">
+      <div id="albumGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.85rem"></div>
+      <div id="slideshowContainer" style="display:none;flex-direction:column;align-items:center;gap:1rem;position:relative">
+        <button id="slideBackBtn" style="align-self:flex-start;display:flex;align-items:center;gap:.4rem;background:var(--bg3);border:1px solid var(--border);color:var(--text2);padding:.4rem .9rem;border-radius:99px;font-size:.8rem;font-weight:600;cursor:pointer;font-family:var(--font-body)"><i class="fa-solid fa-arrow-left"></i> Back to Grid</button>
+        <div style="position:relative;width:100%;border-radius:14px;overflow:hidden;background:#000;min-height:320px;display:flex;align-items:center;justify-content:center">
+          <img id="slideshowImg" src="" alt="" style="max-width:100%;max-height:500px;object-fit:contain;transition:opacity .35s ease;border-radius:10px"/>
+          <button id="slidePrev" style="position:absolute;left:.75rem;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.15);color:#fff;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;backdrop-filter:blur(4px)" onmouseover="this.style.background='rgba(0,201,167,.7)'" onmouseout="this.style.background='rgba(0,0,0,.55)'"><i class="fa-solid fa-chevron-left"></i></button>
+          <button id="slideNext" style="position:absolute;right:.75rem;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.15);color:#fff;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;backdrop-filter:blur(4px)" onmouseover="this.style.background='rgba(0,201,167,.7)'" onmouseout="this.style.background='rgba(0,0,0,.55)'"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+        <div id="slideshowCaption" style="font-size:.82rem;color:var(--text3);text-align:center"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+#albumModal.open{display:flex!important}
+.album-loading,.album-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;min-height:220px;color:var(--text3);font-size:.9rem;grid-column:1/-1}
+.album-loading i,.album-empty i{font-size:2.5rem;color:var(--accent)}
+.album-thumb{border-radius:10px;overflow:hidden;aspect-ratio:1;cursor:pointer;position:relative;background:var(--bg3);border:1px solid var(--border);transition:transform .2s,box-shadow .2s}
+.album-thumb:hover{transform:scale(1.04);box-shadow:0 8px 28px rgba(0,201,167,.25)}
+.album-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.album-thumb-overlay{position:absolute;inset:0;background:rgba(0,201,167,.18);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s;color:#fff;font-size:1.3rem}
+.album-thumb:hover .album-thumb-overlay{opacity:1}
+</style>
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-copy">© 2026 <span>Abir Hasan</span> — All Rights Reserved</div>
+      <div class="footer-links"><a href="#hero">Home</a><a href="#projects">Projects</a><a href="#contact">Contact</a></div>
+    </div>
+  </div>
+</footer>
+<button id="scroll-top" aria-label="Scroll to top"><i class="fa-solid fa-chevron-up"></i></button>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// ===== EmailJS Init =====
+emailjs.init('fJENBGk_G-2Oa9M_P');
+
+// ===== THEME =====
+const html=document.documentElement;
+const themeBtn=document.getElementById('theme-toggle');
+const themeIcon=themeBtn.querySelector('i');
+const savedTheme=localStorage.getItem('theme')||'dark';
+html.setAttribute('data-theme',savedTheme);
+themeIcon.className=savedTheme==='dark'?'fa-solid fa-sun':'fa-solid fa-moon';
+themeBtn.addEventListener('click',()=>{
+  const c=html.getAttribute('data-theme');
+  const n=c==='dark'?'light':'dark';
+  html.setAttribute('data-theme',n);
+  localStorage.setItem('theme',n);
+  themeIcon.className=n==='dark'?'fa-solid fa-sun':'fa-solid fa-moon';
+});
+
+// ===== MOBILE MENU =====
+const hamburger=document.getElementById('hamburger');
+const mobileMenu=document.getElementById('mobile-menu');
+hamburger.addEventListener('click',()=>mobileMenu.classList.toggle('open'));
+mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mobileMenu.classList.remove('open')));
+
+// ===== SCROLL =====
+const navbar=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{
+  navbar.classList.toggle('scrolled',window.scrollY>20);
+  document.getElementById('scroll-top').classList.toggle('visible',window.scrollY>400);
+});
+
+// ===== ACTIVE NAV =====
+const navLinks=document.querySelectorAll('.nav-links a');
+const sections=document.querySelectorAll('section[id]');
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting) navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id));
+  });
+},{rootMargin:'-50% 0px -50% 0px'});
+sections.forEach(s=>obs.observe(s));
+
+// ===== REVEAL =====
+const revObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');revObs.unobserve(e.target);}});
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
+
+// ===== TIMELINE =====
+const tlObs=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*120);tlObs.unobserve(e.target);}
+  });
+},{threshold:.2});
+document.querySelectorAll('.timeline-item').forEach(el=>tlObs.observe(el));
+
+// ===== FILTER =====
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const f=btn.dataset.filter;
+    document.querySelectorAll('.project-card').forEach(c=>c.classList.toggle('hidden',f!=='all'&&c.dataset.category!==f));
+  });
+});
+
+document.getElementById('scroll-top').addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+// ===== CONTACT FORM via EmailJS =====
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const submitBtn = document.getElementById('submitBtn');
+  submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+  submitBtn.disabled = true;
+
+  const templateParams = {
+    from_name: document.getElementById('fname').value,
+    from_email: document.getElementById('femail').value,
+    subject: document.getElementById('fsubject').value || 'Portfolio Contact',
+    message: document.getElementById('fmsg').value
+  };
+
+  emailjs.send('service_j7hj93j', 'template_ephfhvu', templateParams)
+    .then(function() {
+      submitBtn.style.display = 'none';
+      const successEl = document.getElementById('formSuccess');
+      successEl.style.display = 'block';
+      successEl.textContent = '✅ Message sent! I\'ll get back to you within 24 hours.';
+      document.getElementById('contactForm').reset();
+    }, function(error) {
+      submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Message';
+      submitBtn.disabled = false;
+      alert('Something went wrong. Please email directly at abirhasanmahin228@gmail.com');
+      console.error('EmailJS error:', error);
+    });
+});
+
+// ===== GITHUB GRAPH =====
+(function buildGraph(){
+  const levels=[0,0,0,1,1,2,2,3,3,4];
+  const container=document.getElementById('contrib-graph');
+  const row=document.createElement('div');
+  row.className='contrib-row';
+  row.style.cssText='gap:3px;align-items:flex-start;overflow-x:auto;padding:4px 0';
+  for(let w=0;w<52;w++){
+    const col=document.createElement('div');
+    col.className='contrib-col';
+    for(let d=0;d<7;d++){
+      const cell=document.createElement('div');
+      const l=Math.random()<.35?0:levels[Math.floor(Math.random()*levels.length)];
+      cell.className='contrib-cell'+(l?' l'+l:'');
+      col.appendChild(cell);
+    }
+    row.appendChild(col);
+  }
+  container.appendChild(row);
+})();
+
+function animateCount(el,target,dur=1200){
+  let s=0;const step=target/(dur/16);
+  const iv=setInterval(()=>{s=Math.min(s+step,target);el.textContent=Math.floor(s);if(s>=target)clearInterval(iv);},16);
+}
+const cObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      animateCount(document.getElementById('commits-count'),247);
+      animateCount(document.getElementById('repos-count'),7);
+      //animateCount(document.getElementById('stars-count'),34);
+      animateCount(document.getElementById('prs-count'),12);
+      cObs.unobserve(e.target);
+    }
+  });
+},{threshold:.1});
+const githubSection=document.getElementById('github');
+if(githubSection)cObs.observe(githubSection);
+
+// ===== ALBUM =====
+const ALBUM_FOLDER_ID = '1DF0Yp4n3z4FR2CeVAWHMKwTDXLTbYK4m';
+const API_KEY = 'AIzaSyCTkC9LPThzbm4ZjcpjY_ne8IRTYVpQdzk';
+let albumImages = [];
+let currentSlide = 0;
+let slideTimer = null;
+
+async function loadAlbumFromDrive() {
+  const grid = document.getElementById('albumGrid');
+  const slideshow = document.getElementById('slideshowContainer');
+  grid.style.display = 'grid';
+  grid.innerHTML = '<div class="album-loading"><i class="fa-solid fa-spinner fa-spin"></i><span>Loading photos...</span></div>';
+  slideshow.style.display = 'none';
+  try {
+    const url = `https://www.googleapis.com/drive/v3/files?q='${ALBUM_FOLDER_ID}'+in+parents+and+mimeType+contains+'image/'&key=${API_KEY}&fields=files(id,name,thumbnailLink)&orderBy=createdTime+desc&pageSize=50`;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('API error');
+    const data = await res.json();
+    albumImages = data.files || [];
+    if (albumImages.length === 0) {
+      grid.innerHTML = '<div class="album-empty"><i class="fa-solid fa-images"></i><p>No photos yet. Upload some to your Google Drive folder!</p></div>';
+      return;
+    }
+    renderAlbumGrid();
+  } catch(err) {
+    grid.innerHTML = '<div class="album-empty"><i class="fa-solid fa-triangle-exclamation"></i><p>Could not load photos. Set your API key and folder ID.</p></div>';
+  }
+}
+function renderAlbumGrid() {
+  const grid = document.getElementById('albumGrid');
+  grid.innerHTML = '';
+  albumImages.forEach((img, idx) => {
+    const thumb = document.createElement('div');
+    thumb.className = 'album-thumb';
+    thumb.innerHTML = `<img src="https://drive.google.com/thumbnail?id=${img.id}&sz=w400" alt="${img.name}" loading="lazy"/><div class="album-thumb-overlay"><i class="fa-solid fa-expand"></i></div>`;
+    thumb.addEventListener('click', () => startSlideshow(idx));
+    grid.appendChild(thumb);
+  });
+}
+function startSlideshow(startIdx=0) {
+  currentSlide = startIdx;
+  document.getElementById('albumGrid').style.display = 'none';
+  const ss = document.getElementById('slideshowContainer');
+  ss.style.display = 'flex';
+  showSlide(currentSlide);
+  slideTimer = setInterval(() => { currentSlide=(currentSlide+1)%albumImages.length; showSlide(currentSlide); }, 4000);
+}
+function showSlide(idx) {
+  const img = albumImages[idx];
+  const el = document.getElementById('slideshowImg');
+  const caption = document.getElementById('slideshowCaption');
+  el.style.opacity = 0;
+  setTimeout(() => {
+    el.src = `https://drive.google.com/thumbnail?id=${img.id}&sz=w1200`;
+    el.onload = () => { el.style.opacity = 1; };
+    caption.textContent = `${idx+1} / ${albumImages.length} — ${img.name.replace(/\.[^.]+$/,'')}`;
+  }, 200);
+}
+function stopSlideshow() {
+  clearInterval(slideTimer); slideTimer = null;
+  document.getElementById('slideshowContainer').style.display = 'none';
+  document.getElementById('albumGrid').style.display = 'grid';
+}
+document.getElementById('albumBtn').addEventListener('click', () => {
+  document.getElementById('albumModal').classList.add('open');
+  loadAlbumFromDrive();
+});
+document.getElementById('albumClose').addEventListener('click', () => {
+  document.getElementById('albumModal').classList.remove('open');
+  stopSlideshow();
+});
+document.getElementById('albumModal').addEventListener('click', e => {
+  if(e.target === document.getElementById('albumModal')) { document.getElementById('albumModal').classList.remove('open'); stopSlideshow(); }
+});
+document.getElementById('slideNext').addEventListener('click', () => {
+  clearInterval(slideTimer);
+  currentSlide=(currentSlide+1)%albumImages.length; showSlide(currentSlide);
+  slideTimer=setInterval(()=>{currentSlide=(currentSlide+1)%albumImages.length;showSlide(currentSlide);},4000);
+});
+document.getElementById('slidePrev').addEventListener('click', () => {
+  clearInterval(slideTimer);
+  currentSlide=(currentSlide-1+albumImages.length)%albumImages.length; showSlide(currentSlide);
+  slideTimer=setInterval(()=>{currentSlide=(currentSlide+1)%albumImages.length;showSlide(currentSlide);},4000);
+});
+document.getElementById('slideBackBtn').addEventListener('click', stopSlideshow);
+document.addEventListener('keydown', e => {
+  if(!document.getElementById('albumModal').classList.contains('open')) return;
+  if(e.key==='Escape'){document.getElementById('albumModal').classList.remove('open');stopSlideshow();}
+  if(e.key==='ArrowRight'&&document.getElementById('slideshowContainer').style.display==='flex') document.getElementById('slideNext').click();
+  if(e.key==='ArrowLeft'&&document.getElementById('slideshowContainer').style.display==='flex') document.getElementById('slidePrev').click();
+});
+</script>
+</body>
+</html>
