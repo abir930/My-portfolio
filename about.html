@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About &amp; Experience | Kazi Abir Hasan</title>
+  <meta name="description"
+    content="Learn about Kazi Abir Hasan, his background in embedded systems, Datasoft internship, education, skills, and technical journey." />
+
+  <!-- Preconnect and Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/transitions.css" />
+  <link rel="stylesheet" href="./css/pages/about.css" />
+</head>
+
+<body>
+  <div class="texture-overlay"></div>
+
+  <!-- Page Curtain Transition -->
+  <div id="page-curtain">
+    <div class="curtain-layer curtain-layer-1"></div>
+    <div class="curtain-layer curtain-layer-2">
+      <div class="curtain-logo">
+        <img src="./assets/logo.png" alt="Logo" class="curtain-logo-img" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header id="site-header">
+    <div class="container nav-container">
+      <a href="./index.html" class="nav-brand">
+        <img src="./assets/logo.png" alt="Logo" class="brand-logo-img" />
+        <div class="brand-meta">
+          <span class="brand-name">Kazi Abir Hasan</span>
+          <span class="brand-title">Embedded Systems Enthusiast</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="./index.html" class="nav-link">Home</a></li>
+          <li><a href="./about.html" class="nav-link active">About</a></li>
+          <li><a href="./projects.html" class="nav-link">Projects</a></li>
+          <li><a href="./gallery.html" class="nav-link">Gallery</a></li>
+          <li><a href="./contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="./gallery.html" class="btn-theme-toggle" aria-label="Photo Album" title="Open Photo Gallery"
+          style="text-decoration: none;">
+          <i class="fa-solid fa-images"></i>
+        </a>
+        <a href="./contact.html" class="btn-nav-connect magnetic-btn">
+          <span>Let's Connect</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <button id="hamburger-btn" class="hamburger-btn" aria-label="Open Navigation Drawer">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-drawer" class="mobile-nav-drawer">
+    <a href="./index.html" class="nav-link"><span>Home</span> <i class="fa-solid fa-chevron-right"></i></a>
+    <a href="./about.html" class="nav-link active"><span>About</span> <i class="fa-solid fa-chevron-right"></i></a>
+    <a href="./projects.html" class="nav-link"><span>Projects</span> <i class="fa-solid fa-chevron-right"></i></a>
+    <a href="./gallery.html" class="nav-link"><span>Gallery</span> <i class="fa-solid fa-chevron-right"></i></a>
+    <a href="./contact.html" class="nav-link"><span>Contact</span> <i class="fa-solid fa-chevron-right"></i></a>
+    <div class="mobile-cta-row">
+      <a href="./contact.html" class="btn btn-burgundy" style="width: 100%;">
+        <span>Let's Connect</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+
+  <main>
+    <!-- PAGE HERO -->
+    <section class="page-hero container fade-up">
+      <div class="page-label">Curriculum &amp; Profile</div>
+      <h1 class="page-title">Bridging Hardware with <span class="accent-burgundy">Intelligent Code</span></h1>
+      <p class="page-description">
+        A deep dive into my background in computer science, low-level microcontroller systems, firmware development, and
+        practical engineering milestones.
+      </p>
+    </section>
+
+    <!-- BIO & PROFILE PORTRAIT -->
+    <section class="container">
+      <div class="about-profile-grid">
+        <!-- Portrait Card (assets/about.png) -->
+        <div class="about-portrait-column fade-up">
+          <div class="about-portrait-card">
+            <div class="about-portrait-inner">
+              <img src="./assets/about.png" alt="Kazi Abir Hasan - Sketch Portrait" class="about-portrait-img" />
+              <div class="about-portrait-overlay">
+                <span class="portrait-caption">Kazi Abir Hasan</span>
+                <span class="portrait-subcaption">Embedded Systems • IoT Architecture</span>
+              </div>
+            </div>
+          </div>
+          <div class="about-sketch-note">
+            <span>Ideas to Real World Solutions</span>
+          </div>
+        </div>
+
+        <!-- Bio Details -->
+        <div class="about-bio-column fade-up stagger-1">
+          <div class="about-bio-text">
+            <p>
+              I am <strong>Kazi Abir Hasan</strong>, a Computer Science student dedicated to the craft of
+              <strong>embedded systems</strong> and <strong>Internet of Things architecture</strong>. My driving passion
+              lies at the intersection of raw silicon and algorithmic intelligence: constructing machines and circuits
+              that sense physical reality, process information deterministically, and actuate tangible change.
+            </p>
+            <p>
+              My engineering work spans robotics, sensor fusion, AI-driven embedded analytics, and hardware-software
+              co-design. I believe that engineering achieves its greatest value when applied to physical problems:
+              monitoring waterways for clean communities, streamlining traffic through real-time telemetry, or
+              automating processes with high reliability.
+            </p>
+            <p>
+              Currently, I am investigating Edge AI integration on microcontrollers to perform intelligent inference
+              directly on field hardware. I welcome collaborative opportunities, research partnerships, and engineering
+              challenges.
+            </p>
+            <div class="about-actions-row">
+              <a href="https://drive.google.com/uc?export=download&id=1h6hKA6caO2LQuSTGgoBCsk9sLJAeCngB&utm"
+                target="_blank" rel="noopener" class="btn btn-burgundy magnetic-btn">
+                <i class="fa-solid fa-download"></i>
+                <span>Download Official CV</span>
+              </a>
+              <a href="./contact.html" class="btn btn-cashmere-outline magnetic-btn">
+                <span>Let's Connect</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Facts Grid -->
+      <div class="quick-facts-grid fade-up stagger-2" style="margin-bottom: 5.5rem;">
+        <div class="card quick-fact-card">
+          <div class="fact-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <span class="fact-label">Location</span>
+          <span class="fact-val">Bangladesh</span>
+        </div>
+
+        <div class="card quick-fact-card">
+          <div class="fact-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+          <span class="fact-label">Education</span>
+          <span class="fact-val">CSE Undergraduate</span>
+        </div>
+
+        <div class="card quick-fact-card">
+          <div class="fact-icon"><i class="fa-solid fa-microchip"></i></div>
+          <span class="fact-label">Primary Focus</span>
+          <span class="fact-val">IoT &amp; Edge AI</span>
+        </div>
+
+        <div class="card quick-fact-card">
+          <div class="fact-icon"><i class="fa-solid fa-briefcase"></i></div>
+          <span class="fact-label">Collaboration</span>
+          <span class="fact-val">Open for Opportunities</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECHNICAL SKILLS MATRIX -->
+    <section class="container skills-container">
+      <div style="margin-bottom: 2.5rem;" class="fade-up">
+        <div class="page-label">Technical Stack</div>
+        <h2 style="font-family: var(--font-serif); font-size: 2.2rem;">Skills &amp; <span
+            class="accent-burgundy">Technologies</span></h2>
+      </div>
+
+      <div class="skills-category-grid">
+        <!-- Programming -->
+        <div class="card skill-box fade-up stagger-1">
+          <div class="skill-box-header">
+            <div class="skill-box-icon"><i class="fa-solid fa-code"></i></div>
+            <h3 class="skill-box-title">Programming</h3>
+          </div>
+          <div class="skill-pills">
+            <span class="skill-badge">Python</span>
+            <span class="skill-badge">C</span>
+            <span class="skill-badge">Embedded C</span>
+            <span class="skill-badge">C++</span>
+            <span class="skill-badge">JavaScript</span>
+            <span class="skill-badge">HTML / CSS</span>
+            <span class="skill-badge">Shell Scripting</span>
+          </div>
+        </div>
+
+        <!-- Hardware / IoT -->
+        <div class="card skill-box fade-up stagger-2">
+          <div class="skill-box-header">
+            <div class="skill-box-icon"><i class="fa-solid fa-microchip"></i></div>
+            <h3 class="skill-box-title">Hardware &amp; IoT</h3>
+          </div>
+          <div class="skill-pills">
+            <span class="skill-badge">ESP32</span>
+            <span class="skill-badge">STM32 Microcontrollers</span>
+            <span class="skill-badge">Arduino</span>
+            <span class="skill-badge">Raspberry Pi</span>
+            <span class="skill-badge">Analog &amp; Digital Sensors</span>
+            <span class="skill-badge">PCB Design</span>
+          </div>
+        </div>
+
+        <!-- Core Technologies -->
+        <div class="card skill-box fade-up stagger-3">
+          <div class="skill-box-header">
+            <div class="skill-box-icon"><i class="fa-solid fa-network-wired"></i></div>
+            <h3 class="skill-box-title">Technologies</h3>
+          </div>
+          <div class="skill-pills">
+            <span class="skill-badge">Machine Learning</span>
+            <span class="skill-badge">Deep Learning</span>
+            <span class="skill-badge">MQTT Protocol</span>
+            <span class="skill-badge">WebSockets</span>
+            <span class="skill-badge">Embedded Firmware</span>
+            <span class="skill-badge">Real-Time Telemetry</span>
+          </div>
+        </div>
+
+        <!-- Tools & Toolchains -->
+        <div class="card skill-box fade-up stagger-4">
+          <div class="skill-box-header">
+            <div class="skill-box-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+            <h3 class="skill-box-title">Tools &amp; Workflows</h3>
+          </div>
+          <div class="skill-pills">
+            <span class="skill-badge">Git &amp; GitHub</span>
+            <span class="skill-badge">Linux / Unix Shell</span>
+            <span class="skill-badge">EasyEDA</span>
+            <span class="skill-badge">KiCad</span>
+            <span class="skill-badge">VS Code</span>
+            <span class="skill-badge">Arduino IDE</span>
+            <span class="skill-badge">STM32 QubeIDE</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE & TIMELINE -->
+    <section class="container timeline-section">
+      <div style="margin-bottom: 3.5rem; text-align: center;" class="fade-up">
+        <div class="page-label" style="justify-content: center;">Track Record</div>
+        <h2 style="font-family: var(--font-serif); font-size: 2.4rem;">Experience &amp; <span
+            class="accent-burgundy">Milestones</span></h2>
+        <p style="max-width: 600px; margin: 0.75rem auto 0; color: var(--text-secondary);">
+          Practical industry internships, research implementations, and continuous learning achievements.
+        </p>
+      </div>
+
+      <div class="experience-timeline">
+        <!-- Entry 1: General Secretary | Embedded System Research Center -->
+        <div class="timeline-entry fade-up">
+          <div class="timeline-node"></div>
+          <div class="card timeline-card">
+            <div class="timeline-meta">
+              <span class="timeline-year">2026 - 2027</span>
+              <span class="timeline-type-pill">Research Leadership</span>
+            </div>
+            <h3 class="timeline-heading">General Secretary | Embedded System Research Center</h3>
+            <p class="timeline-description">
+              Directing organizational operations, research project roadmaps, and technical workshops at the Embedded
+              System Research Center, mentoring students and driving innovation across microcontroller firmware and
+              intelligent hardware systems.
+            </p>
+          </div>
+        </div>
+
+        <!-- Entry 2: Chair | IEEE DIU SB EMBS Chapter -->
+        <div class="timeline-entry fade-up">
+          <div class="timeline-node"></div>
+          <div class="card timeline-card">
+            <div class="timeline-meta">
+              <span class="timeline-year">2026 - 2027</span>
+              <span class="timeline-type-pill">IEEE Leadership</span>
+            </div>
+            <h3 class="timeline-heading">Chair | IEEE DIU SB EMBS Chapter</h3>
+            <p class="timeline-description">
+              Leading the IEEE Engineering in Medicine and Biology Society (EMBS) Student Branch Chapter at Daffodil
+              International University, spearheading technical symposiums, biomedical hardware workshops, and student
+              engineering development programs.
+            </p>
+          </div>
+        </div>
+
+        <!-- Entry 3: Internship -->
+        <div class="timeline-entry fade-up">
+          <div class="timeline-node"></div>
+          <div class="card timeline-card">
+            <div class="timeline-meta">
+              <span class="timeline-year">2026</span>
+              <span class="timeline-type-pill">Industry Internship</span>
+            </div>
+            <h3 class="timeline-heading">Firmware Developer Intern | Datasoft Manufacturing &amp; Assembly Inc. Ltd.
+            </h3>
+            <p class="timeline-description">
+              Completed an intensive 2-month internship as a Firmware Developer focusing on embedded microcontrollers.
+              Gained hands-on experience in low-level firmware engineering, hardware-software integration, deterministic
+              debugging, and real-time execution pipelines.
+            </p>
+          </div>
+        </div>
+
+        <!-- Entry 2: University Project Showcase -->
+        <div class="timeline-entry fade-up">
+          <div class="timeline-node"></div>
+          <div class="card timeline-card">
+            <div class="timeline-meta">
+              <span class="timeline-year">2026</span>
+              <span class="timeline-type-pill">University Showcase</span>
+            </div>
+            <h3 class="timeline-heading">Smart Water Monitoring System Project Lead</h3>
+            <p class="timeline-description">
+              Architected and deployed an end-to-end IoT platform to monitor water safety parameters (pH, turbidity,
+              temperature). Paired sensor arrays with machine learning prediction deployed at the edge. Exhibited at the
+              department project exhibition.
+            </p>
+          </div>
+        </div>
+
+        <!-- Entry 3: IBM Certification -->
+        <div class="timeline-entry fade-up">
+          <div class="timeline-node"></div>
+          <div class="card timeline-card">
+            <div class="timeline-meta">
+              <span class="timeline-year">2025</span>
+              <span class="timeline-type-pill">Professional Certification</span>
+            </div>
+            <h3 class="timeline-heading">Python for Data Science &amp; AI | IBM &amp; Coursera</h3>
+            <p class="timeline-description">
+              Completed IBM certified curriculum covering data analysis, NumPy, Pandas, predictive modeling foundations,
+              and preparation of datasets for embedded and edge ML applications.
+            </p>
+          </div>
+        </div>
+
+        <!-- Entry 4: AWS Certification -->
+        <div class="timeline-entry fade-up">
+          <div class="timeline-node"></div>
+          <div class="card timeline-card">
+            <div class="timeline-meta">
+              <span class="timeline-year">2025</span>
+              <span class="timeline-type-pill">Cloud Certification</span>
+            </div>
+            <h3 class="timeline-heading">AWS Academy Cloud Foundations | AWS Academy</h3>
+            <p class="timeline-description">
+              Mastered foundational cloud computing principles, AWS infrastructure, cloud security architectures, IAM,
+              and telemetry deployment essentials for scalable IoT systems.
+            </p>
+          </div>
+        </div>
+
+        <!-- Entry 5: IoT Workshop -->
+        <div class="timeline-entry fade-up">
+          <div class="timeline-node"></div>
+          <div class="card timeline-card">
+            <div class="timeline-meta">
+              <span class="timeline-year">2024</span>
+              <span class="timeline-type-pill">Hands-on Workshop</span>
+            </div>
+            <h3 class="timeline-heading">IoT Workshop on ESP32 &amp; Embedded Systems</h3>
+            <p class="timeline-description">
+              Intensive technical workshop exploring ESP32 dual-core capabilities, sensor interfacing, Wi-Fi
+              connectivity, MQTT broker communications, and cloud pipeline security.
+            </p>
+          </div>
+        </div>
+
+        <!-- Entry 6: Competitive Programming Contest -->
+        <div class="timeline-entry fade-up">
+          <div class="timeline-node"></div>
+          <div class="card timeline-card">
+            <div class="timeline-meta">
+              <span class="timeline-year">2023</span>
+              <span class="timeline-type-pill">Programming Competition</span>
+            </div>
+            <h3 class="timeline-heading">TAKE-OFF Programming Contest Final Round | DIU CPC</h3>
+            <p class="timeline-description">
+              Participated in the Spring 2023 Final Round organized by Daffodil International University Computer
+              Programming Club (CPC), solving algorithmic and data structure problems under competitive conditions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACADEMIC EDUCATION SECTION -->
+    <section class="container fade-up education-section" id="education-section">
+      <div style="margin-bottom: 3.5rem; text-align: center;">
+        <div class="page-label" style="justify-content: center;">Academic Journey</div>
+        <h2 style="font-family: var(--font-serif); font-size: 2.3rem;">Education &amp; <span
+            class="accent-burgundy">Qualifications</span></h2>
+        <p style="max-width: 620px; margin: 0.75rem auto 0; color: var(--text-secondary);">
+          Foundational and higher academic qualifications establishing my core engineering principles and scientific
+          analytical skills.
+        </p>
+      </div>
+
+      <div class="education-grid">
+        <!-- B.Sc. in CSE -->
+        <div class="card education-card featured fade-up stagger-1">
+          <div class="edu-card-top">
+            <div class="edu-icon-badge">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <span class="edu-period-badge">2023 - 2026</span>
+          </div>
+
+          <div class="edu-level-label">Bachelor's Degree</div>
+          <h3 class="edu-degree-title">B.Sc. in Computer Science &amp; Engineering</h3>
+          <div class="edu-institution">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Daffodil International University</span>
+          </div>
+
+          <div class="edu-major-box">
+            <span class="edu-major-label">Major Concentration</span>
+            <span class="edu-major-val">Embedded Systems &amp; Robotics</span>
+          </div>
+
+          <p class="edu-description">
+            Focusing on microcontroller firmware architectures, edge AI inference, autonomous robotics, and real-time
+            IoT systems engineering.
+          </p>
+
+
+        </div>
+
+        <!-- HSC -->
+        <div class="card education-card fade-up stagger-2">
+          <div class="edu-card-top">
+            <div class="edu-icon-badge">
+              <i class="fa-solid fa-award"></i>
+            </div>
+            <span class="edu-period-badge">Passing Year: 2021</span>
+          </div>
+
+          <div class="edu-level-label">Higher Secondary Certificate</div>
+          <h3 class="edu-degree-title">Higher Secondary Certificate (HSC)</h3>
+          <div class="edu-institution">
+            <i class="fa-solid fa-school"></i>
+            <span>Govt. Bangabandhu College, Gopalganj</span>
+          </div>
+
+          <div class="edu-major-box">
+            <span class="edu-major-label">Discipline / Group</span>
+            <span class="edu-major-val">Science</span>
+          </div>
+
+          <p class="edu-description">
+            Rigorous coursework in physics, chemistry, and higher mathematics, building the analytical foundation for
+            engineering.
+          </p>
+
+        </div>
+
+        <!-- SSC -->
+        <div class="card education-card fade-up stagger-3">
+          <div class="edu-card-top">
+            <div class="edu-icon-badge">
+              <i class="fa-solid fa-book-open"></i>
+            </div>
+            <span class="edu-period-badge">Passing Year: 2019</span>
+          </div>
+
+          <div class="edu-level-label">Secondary School Certificate</div>
+          <h3 class="edu-degree-title">Secondary School Certificate (SSC)</h3>
+          <div class="edu-institution">
+            <i class="fa-solid fa-school"></i>
+            <span>S. M. Model Govt. High School, Gopalganj</span>
+          </div>
+
+          <div class="edu-major-box">
+            <span class="edu-major-label">Discipline / Group</span>
+            <span class="edu-major-val">Science</span>
+          </div>
+
+          <p class="edu-description">
+            Comprehensive secondary education in physical sciences, general mathematics, and foundational scientific
+            studies.
+          </p>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer id="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="./assets/logo.png" alt="Logo" class="footer-logo-img" />
+          <p>Kazi Abir Hasan • Embedded Systems &amp; IoT Engineering</p>
+        </div>
+
+        <ul class="footer-nav">
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./about.html">About</a></li>
+          <li><a href="./projects.html">Projects</a></li>
+          <li><a href="./gallery.html">Gallery</a></li>
+          <li><a href="./contact.html">Contact</a></li>
+        </ul>
+
+        <div class="footer-socials">
+          <a href="https://github.com/abir930" target="_blank" rel="noopener" class="social-pill" aria-label="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/abir-hasan-mahin-552a61374/" target="_blank" rel="noopener"
+            class="social-pill" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+          <a href="https://www.facebook.com/abirhasanmahin.mahin/" target="_blank" rel="noopener" class="social-pill"
+            aria-label="Facebook">
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+          <a href="mailto:abirhasanmahin228@gmail.com" class="social-pill" aria-label="Email">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 <strong>Kazi Abir Hasan</strong>. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" aria-label="Back to Top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- Global Scripts -->
+  <script src="./js/main.js"></script>
+</body>
+
+</html>

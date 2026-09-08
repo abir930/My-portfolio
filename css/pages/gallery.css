@@ -1,0 +1,283 @@
+/* ==========================================================================
+   GALLERY / PHOTO ALBUM PAGE STYLES
+   ========================================================================== */
+
+/* Gallery Header Bar */
+.gallery-controls-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--cashmere-border);
+  margin-bottom: 3rem;
+}
+
+.gallery-count-badge {
+  font-family: var(--font-tech);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--burgundy);
+  text-transform: uppercase;
+}
+
+.gallery-actions-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Gallery Grid */
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.album-photos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 6rem;
+}
+
+.album-photo-card {
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  position: relative;
+  background: var(--cashmere-surface-2);
+  border: 1px solid var(--cashmere-border);
+  cursor: pointer;
+  box-shadow: var(--shadow-subtle);
+  transition: transform var(--duration-normal) var(--ease-smooth), box-shadow var(--duration-normal) var(--ease-smooth), border-color var(--duration-fast);
+  opacity: 1;
+}
+
+.album-photo-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: var(--burgundy);
+  box-shadow: var(--shadow-hover);
+}
+
+.album-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--duration-slow) var(--ease-smooth);
+}
+
+.album-photo-card:hover .album-photo-img {
+  transform: scale(1.08);
+}
+
+.album-photo-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(70, 17, 29, 0.85) 100%);
+  display: flex;
+  align-items: flex-end;
+  padding: 1.25rem;
+  opacity: 0;
+  transition: opacity var(--duration-normal) var(--ease-smooth);
+}
+
+.album-photo-card:hover .album-photo-overlay {
+  opacity: 1;
+}
+
+.overlay-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  color: #FFFFFF;
+}
+
+.overlay-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 80%;
+}
+
+.overlay-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  backdrop-filter: blur(4px);
+}
+
+/* Loading & Empty States */
+.gallery-status-state {
+  grid-column: 1 / -1;
+  padding: 5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  text-align: center;
+}
+
+.gallery-status-icon {
+  font-size: 3rem;
+  color: var(--burgundy);
+}
+
+.gallery-status-text {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   FULLSCREEN LIGHTBOX SLIDESHOW
+   ========================================================================== */
+#gallery-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 99990;
+  background: rgba(14, 8, 10, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#gallery-lightbox.is-open {
+  display: flex;
+  opacity: 1;
+}
+
+.lightbox-topbar {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #FFFFFF;
+  z-index: 10;
+}
+
+.lightbox-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+  padding: 0.55rem 1.25rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--duration-fast);
+}
+
+.lightbox-back-btn:hover {
+  background: var(--burgundy);
+  border-color: var(--burgundy);
+}
+
+.lightbox-close-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  cursor: pointer;
+  transition: all var(--duration-fast);
+}
+
+.lightbox-close-btn:hover {
+  background: var(--burgundy);
+  border-color: var(--burgundy);
+  transform: rotate(90deg);
+}
+
+.lightbox-stage {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.lightbox-img {
+  max-width: 100%;
+  max-height: 75vh;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+  transition: opacity 0.3s ease;
+}
+
+.lightbox-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  font-size: 1.35rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: all var(--duration-fast);
+  z-index: 10;
+}
+
+.lightbox-prev {
+  left: 1rem;
+}
+
+.lightbox-next {
+  right: 1rem;
+}
+
+.lightbox-nav-btn:hover {
+  background: var(--burgundy);
+  border-color: var(--burgundy);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.lightbox-caption {
+  font-family: var(--font-tech);
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 1px;
+  text-align: center;
+}

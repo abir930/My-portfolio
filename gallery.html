@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery &amp; Album | Kazi Abir Hasan</title>
+  <meta name="description" content="Visual moments, engineering prototypes, hardware lab sessions, and event memories from Kazi Abir Hasan." />
+
+  <!-- Preconnect and Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/transitions.css" />
+  <link rel="stylesheet" href="./css/pages/gallery.css" />
+</head>
+<body>
+  <div class="texture-overlay"></div>
+
+  <!-- Page Curtain Transition -->
+  <div id="page-curtain">
+    <div class="curtain-layer curtain-layer-1"></div>
+    <div class="curtain-layer curtain-layer-2">
+      <div class="curtain-logo">
+        <img src="./assets/logo.png" alt="Logo" class="curtain-logo-img" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header id="site-header">
+    <div class="container nav-container">
+      <a href="./index.html" class="nav-brand">
+        <img src="./assets/logo.png" alt="Logo" class="brand-logo-img" />
+        <div class="brand-meta">
+          <span class="brand-name">Kazi Abir Hasan</span>
+          <span class="brand-title">Embedded Systems Enthusiast</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="./index.html" class="nav-link">Home</a></li>
+          <li><a href="./about.html" class="nav-link">About</a></li>
+          <li><a href="./projects.html" class="nav-link">Projects</a></li>
+          <li><a href="./gallery.html" class="nav-link active">Gallery</a></li>
+          <li><a href="./contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="./contact.html" class="btn-nav-connect magnetic-btn">
+          <span>Let's Connect</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <button id="hamburger-btn" class="hamburger-btn" aria-label="Open Navigation Drawer">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-drawer" class="mobile-nav-drawer">
+    <a href="./index.html" class="nav-link"><span>Home</span> <i class="fa-solid fa-chevron-right"></i></a>
+    <a href="./about.html" class="nav-link"><span>About</span> <i class="fa-solid fa-chevron-right"></i></a>
+    <a href="./projects.html" class="nav-link"><span>Projects</span> <i class="fa-solid fa-chevron-right"></i></a>
+    <a href="./gallery.html" class="nav-link active"><span>Gallery</span> <i class="fa-solid fa-chevron-right"></i></a>
+    <a href="./contact.html" class="nav-link"><span>Contact</span> <i class="fa-solid fa-chevron-right"></i></a>
+    <div class="mobile-cta-row">
+      <a href="./contact.html" class="btn btn-burgundy" style="width: 100%;">
+        <span>Let's Connect</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+
+  <main>
+    <!-- PAGE HERO -->
+    <section class="page-hero container fade-up">
+      <div class="page-label">Moments &amp; Photography</div>
+      <h1 class="page-title">Visual Archive &amp; <span class="accent-burgundy">Lab Snapshots</span></h1>
+      <p class="page-description">
+        A dynamic photo album capturing hardware experiments, academic showcases, maker sessions, and memorable milestones.
+      </p>
+    </section>
+
+    <!-- GALLERY CONTROLS BAR -->
+    <section class="container fade-up stagger-1">
+      <div class="gallery-controls-bar">
+        <span class="gallery-count-badge" id="gallery-count-badge">Loading Album...</span>
+        <div class="gallery-actions-group">
+          <button class="btn btn-cashmere-outline" id="gallery-refresh-btn" onclick="initGallery()" style="padding: 0.45rem 1rem; font-size: 0.8rem;">
+            <i class="fa-solid fa-rotate-right"></i>
+            <span>Refresh Feed</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ALBUM PHOTOS GRID -->
+    <section class="container">
+      <div class="album-photos-grid" id="album-grid">
+        <!-- Loaded dynamically via Google Drive API -->
+      </div>
+    </section>
+  </main>
+
+  <!-- FULLSCREEN LIGHTBOX SLIDESHOW MODAL -->
+  <div id="gallery-lightbox" role="dialog" aria-modal="true" aria-label="Photo Slideshow Lightbox">
+    <div class="lightbox-topbar">
+      <button class="lightbox-back-btn" id="lightbox-back-btn">
+        <i class="fa-solid fa-arrow-left"></i>
+        <span>Back to Grid</span>
+      </button>
+      <button class="lightbox-close-btn" id="lightbox-close" aria-label="Close Lightbox">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div class="lightbox-stage">
+      <button class="lightbox-nav-btn lightbox-prev" id="lightbox-prev-btn" aria-label="Previous Slide">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <img src="" alt="Album Photography" id="lightbox-main-img" class="lightbox-img" />
+      <button class="lightbox-nav-btn lightbox-next" id="lightbox-next-btn" aria-label="Next Slide">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+    </div>
+
+    <div class="lightbox-caption" id="lightbox-caption-text">
+      <!-- Populated dynamically: index / total • title -->
+    </div>
+  </div>
+
+  <!-- Global Footer -->
+  <footer id="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="./assets/logo.png" alt="Logo" class="footer-logo-img" />
+          <p>Kazi Abir Hasan • Embedded Systems &amp; IoT Engineering</p>
+        </div>
+
+        <ul class="footer-nav">
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./about.html">About</a></li>
+          <li><a href="./projects.html">Projects</a></li>
+          <li><a href="./gallery.html">Gallery</a></li>
+          <li><a href="./contact.html">Contact</a></li>
+        </ul>
+
+        <div class="footer-socials">
+          <a href="https://github.com/abir930" target="_blank" rel="noopener" class="social-pill" aria-label="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/abir-hasan-mahin-552a61374/" target="_blank" rel="noopener" class="social-pill" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+          <a href="https://www.facebook.com/abirhasanmahin.mahin/" target="_blank" rel="noopener" class="social-pill" aria-label="Facebook">
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+          <a href="mailto:abirhasanmahin228@gmail.com" class="social-pill" aria-label="Email">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 <strong>Kazi Abir Hasan</strong>. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" aria-label="Back to Top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- Scripts -->
+  <script src="./js/main.js"></script>
+  <script src="./js/gallery.js"></script>
+</body>
+</html>

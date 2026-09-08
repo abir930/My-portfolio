@@ -1,0 +1,208 @@
+/* ==========================================================================
+   PROJECTS SHOWCASE PAGE STYLES
+   ========================================================================== */
+
+/* Filter Toolbar */
+.filter-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 3.5rem;
+}
+
+.filter-btn {
+  font-family: var(--font-tech);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 0.65rem 1.45rem;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--cashmere-border);
+  background: var(--cashmere-surface);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-smooth);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filter-btn:hover {
+  border-color: var(--burgundy);
+  color: var(--burgundy);
+  background: var(--burgundy-glow);
+}
+
+.filter-btn.active {
+  background: var(--burgundy);
+  color: #FFFFFF;
+  border-color: var(--burgundy);
+  box-shadow: 0 4px 18px var(--burgundy-glow-strong);
+}
+
+.filter-count {
+  font-size: 0.72rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: var(--radius-pill);
+  background: var(--cashmere-surface-2);
+  color: var(--text-muted);
+}
+
+.filter-btn.active .filter-count {
+  background: rgba(255, 255, 255, 0.25);
+  color: #FFFFFF;
+}
+
+/* Projects Showcase Grid */
+.projects-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2.25rem;
+  margin-bottom: 6rem;
+}
+
+.portfolio-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform var(--duration-normal) var(--ease-smooth), box-shadow var(--duration-normal) var(--ease-smooth), opacity 0.3s ease;
+}
+
+.portfolio-card.is-hidden {
+  display: none;
+}
+
+.portfolio-banner {
+  height: 210px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  color: #FFFFFF;
+  overflow: hidden;
+}
+
+.portfolio-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+.badge-wrapper {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 2;
+}
+
+.cat-pill {
+  font-family: var(--font-tech);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill);
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  color: #FFFFFF;
+}
+
+.ongoing-pill {
+  font-family: var(--font-tech);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill);
+  background: var(--burgundy);
+  color: #FFFFFF;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.portfolio-body {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.portfolio-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--text-main);
+}
+
+.portfolio-description {
+  font-size: 0.94rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+
+.portfolio-tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.tech-badge-item {
+  font-family: var(--font-tech);
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 0.35rem 0.8rem;
+  border-radius: var(--radius-xs);
+  background: var(--cashmere-surface-2);
+  color: var(--burgundy);
+  border: 1px solid var(--cashmere-border);
+}
+
+.portfolio-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.portfolio-btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-sm);
+  background: var(--cashmere-surface-2);
+  color: var(--text-main);
+  border: 1.5px solid var(--cashmere-border);
+  transition: all var(--duration-fast) var(--ease-smooth);
+}
+
+.portfolio-btn:hover {
+  background: var(--burgundy);
+  border-color: var(--burgundy);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px var(--burgundy-glow-strong);
+}
+
+@media (max-width: 768px) {
+  .projects-gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects &amp; Systems | Kazi Abir Hasan</title>
+  <meta name="description" content="Explore hardware, IoT, and embedded systems engineered by Kazi Abir Hasan, including SafePond AI, Smart Chess Board, and microcontroller projects." />
+
+  <!-- Preconnect and Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/transitions.css" />
+  <link rel="stylesheet" href="./css/pages/projects.css" />
+</head>
+<body>
+  <div class="texture-overlay"></div>
+
+  <!-- Page Curtain Transition -->
+  <div id="page-curtain">
+    <div class="curtain-layer curtain-layer-1"></div>
+    <div class="curtain-layer curtain-layer-2">
+      <div class="curtain-logo">
+        <img src="./assets/logo.png" alt="Logo" class="curtain-logo-img" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header id="site-header">
+    <div class="container nav-container">
+      <a href="./index.html" class="nav-brand">
+        <img src="./assets/logo.png" alt="Logo" class="brand-logo-img" />
+        <div class="brand-meta">
+          <span class="brand-name">Kazi Abir Hasan</span>
+          <span class="brand-title">Embedded Systems Enthusiast</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="./index.html" class="nav-link">Home</a></li>
+          <li><a href="./about.html" class="nav-link">About</a></li>
+          <li><a href="./projects.html" class="nav-link active">Projects</a></li>
+          <li><a href="./gallery.html" class="nav-link">Gallery</a></li>
+          <li><a href="./contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="./gallery.html" class="btn-theme-toggle" aria-label="Photo Album" title="Open Photo Gallery" style="text-decoration: none;">
+          <i class="fa-solid fa-images"></i>
+        </a>
+        <a href="./contact.html" class="btn-nav-connect magnetic-btn">
+          <span>Let's Connect</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <button id="hamburger-btn" class="hamburger-btn" aria-label="Open Navigation Drawer">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-drawer" class="mobile-nav-drawer">
+    <a href="./index.html" class="nav-link"><span>Home</span> <i class="fa-solid fa-chevron-right"></i></a>
+    <a href="./about.html" class="nav-link"><span>About</span> <i class="fa-solid fa-chevron-right"></i></a>
+    <a href="./projects.html" class="nav-link active"><span>Projects</span> <i class="fa-solid fa-chevron-right"></i></a>
+    <a href="./gallery.html" class="nav-link"><span>Gallery</span> <i class="fa-solid fa-chevron-right"></i></a>
+    <a href="./contact.html" class="nav-link"><span>Contact</span> <i class="fa-solid fa-chevron-right"></i></a>
+    <div class="mobile-cta-row">
+      <a href="./contact.html" class="btn btn-burgundy" style="width: 100%;">
+        <span>Let's Connect</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+
+  <main>
+    <!-- PAGE HERO -->
+    <section class="page-hero container fade-up">
+      <div class="page-label">Systems &amp; Hardware</div>
+      <h1 class="page-title">Featured <span class="accent-burgundy">Engineering Works</span></h1>
+      <p class="page-description">
+        Demonstrating hands-on solutions across low-power microcontrollers, sensor telemetry, edge machine learning, and connected web architecture.
+      </p>
+    </section>
+
+    <!-- FILTER TOOLBAR -->
+    <section class="container fade-up stagger-1">
+      <div class="filter-toolbar">
+        <button class="filter-btn active" data-category="all">
+          <span>All Systems</span>
+          <span class="filter-count">4</span>
+        </button>
+        <button class="filter-btn" data-category="iot">
+          <i class="fa-solid fa-wifi"></i>
+          <span>IoT</span>
+          <span class="filter-count">2</span>
+        </button>
+        <button class="filter-btn" data-category="embedded">
+          <i class="fa-solid fa-microchip"></i>
+          <span>Embedded</span>
+          <span class="filter-count">2</span>
+        </button>
+        <button class="filter-btn" data-category="web">
+          <i class="fa-solid fa-globe"></i>
+          <span>Web &amp; Telemetry</span>
+          <span class="filter-count">1</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- PROJECTS GALLERY -->
+    <section class="container">
+      <div class="projects-gallery-grid">
+        <!-- Project 1: SafePond AI -->
+        <article class="card portfolio-card fade-up stagger-1" data-category="iot">
+          <div class="portfolio-banner" style="background: linear-gradient(135deg, #0A241C, #184A3B);">
+            <i class="fa-solid fa-droplet"></i>
+            <div class="badge-wrapper">
+              <span class="cat-pill">IoT</span>
+              <span class="cat-pill" style="background: #16A34A;">Deployed</span>
+            </div>
+          </div>
+          <div class="portfolio-body">
+            <h2 class="portfolio-title">Smart Water Monitoring System (SafePond AI)</h2>
+            <p class="portfolio-description">
+              End-to-end IoT platform utilizing multiple environmental sensors to monitor water quality parameters including pH, turbidity, and temperature in real time. Features an integrated machine learning model deployed at the edge to predict pond water health.
+            </p>
+            <div class="portfolio-tech-list">
+              <span class="tech-badge-item">ESP32</span>
+              <span class="tech-badge-item">Python</span>
+              <span class="tech-badge-item">MQTT</span>
+              <span class="tech-badge-item">Machine Learning</span>
+              <span class="tech-badge-item">Sensors</span>
+            </div>
+            <div class="portfolio-actions">
+              <a href="https://github.com/abir930/SafePond_AI.git" target="_blank" rel="noopener" class="portfolio-btn">
+                <i class="fa-brands fa-github"></i>
+                <span>Repository</span>
+              </a>
+              <a href="https://abir930.github.io/SafePond_AI/" target="_blank" rel="noopener" class="portfolio-btn" style="background: var(--burgundy); color: #FFF; border-color: var(--burgundy);">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                <span>Live System</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2: Smart Chess Board -->
+        <article class="card portfolio-card fade-up stagger-2" data-category="iot">
+          <div class="portfolio-banner" style="background: linear-gradient(135deg, #1A1320, #461426);">
+            <i class="fa-solid fa-chess-board"></i>
+            <div class="badge-wrapper">
+              <span class="cat-pill">IoT</span>
+              <span class="ongoing-pill">Active Build</span>
+            </div>
+          </div>
+          <div class="portfolio-body">
+            <h2 class="portfolio-title">Smart Chess Board with Hall Sensing</h2>
+            <p class="portfolio-description">
+              ESP32-powered electronic chessboard integrating an array of Hall-Effect magnetic sensors to detect piece positioning. Tracks game states, validates legal moves deterministically, and connects wirelessly to digital chess engines and online platforms.
+            </p>
+            <div class="portfolio-tech-list">
+              <span class="tech-badge-item">ESP32</span>
+              <span class="tech-badge-item">Hall-Effect</span>
+              <span class="tech-badge-item">C++</span>
+              <span class="tech-badge-item">Bluetooth</span>
+              <span class="tech-badge-item">Hardware Design</span>
+            </div>
+            <div class="portfolio-actions">
+              <a href="https://github.com/abir930" target="_blank" rel="noopener" class="portfolio-btn">
+                <i class="fa-brands fa-github"></i>
+                <span>Source Code</span>
+              </a>
+              <a href="./contact.html" class="portfolio-btn">
+                <i class="fa-solid fa-comments"></i>
+                <span>Inquire Status</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3: Density Based Traffic Signal -->
+        <article class="card portfolio-card fade-up stagger-3" data-category="embedded">
+          <div class="portfolio-banner" style="background: linear-gradient(135deg, #241416, #5A1926);">
+            <i class="fa-solid fa-traffic-light"></i>
+            <div class="badge-wrapper">
+              <span class="cat-pill">Embedded</span>
+              <span class="cat-pill" style="background: #2563EB;">Hardware Lab</span>
+            </div>
+          </div>
+          <div class="portfolio-body">
+            <h2 class="portfolio-title">Density Based Traffic Signal Controller</h2>
+            <p class="portfolio-description">
+              Intelligent traffic regulation system developed using microcontrollers and IR sensor arrays. Dynamically recalculates signal timing intervals according to real-time lane congestion density, decreasing intersection idle times and fuel waste.
+            </p>
+            <div class="portfolio-tech-list">
+              <span class="tech-badge-item">Arduino</span>
+              <span class="tech-badge-item">C</span>
+              <span class="tech-badge-item">IR Sensor Array</span>
+              <span class="tech-badge-item">State Machine</span>
+              <span class="tech-badge-item">Embedded Logic</span>
+            </div>
+            <div class="portfolio-actions">
+              <a href="https://github.com/abir930" target="_blank" rel="noopener" class="portfolio-btn" style="width: 100%;">
+                <i class="fa-brands fa-github"></i>
+                <span>Inspect Repository</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 4: ChatBridge -->
+        <article class="card portfolio-card fade-up stagger-4" data-category="web">
+          <div class="portfolio-banner" style="background: linear-gradient(135deg, #101B2B, #1B3552);">
+            <i class="fa-solid fa-comments"></i>
+            <div class="badge-wrapper">
+              <span class="cat-pill">Web</span>
+              <span class="cat-pill" style="background: #16A34A;">Live Platform</span>
+            </div>
+          </div>
+          <div class="portfolio-body">
+            <h2 class="portfolio-title">ChatBridge Real-Time Anonymous Messaging</h2>
+            <p class="portfolio-description">
+              High-throughput anonymous communication platform built to facilitate supportive mental health dialogues. Engineered with WebSockets for instant message transmission, robust room routing, and zero personal data retention.
+            </p>
+            <div class="portfolio-tech-list">
+              <span class="tech-badge-item">WebSockets</span>
+              <span class="tech-badge-item">Node.js</span>
+              <span class="tech-badge-item">JavaScript</span>
+              <span class="tech-badge-item">HTML5</span>
+              <span class="tech-badge-item">CSS3</span>
+            </div>
+            <div class="portfolio-actions">
+              <a href="https://github.com/abir930" target="_blank" rel="noopener" class="portfolio-btn">
+                <i class="fa-brands fa-github"></i>
+                <span>Repository</span>
+              </a>
+              <a href="./contact.html" class="portfolio-btn" style="background: var(--burgundy); color: #FFF; border-color: var(--burgundy);">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                <span>Test Demo</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CALL TO ACTION BANNER -->
+    <section class="container cta-banner-wrapper fade-up">
+      <div class="cta-banner">
+        <div class="cta-banner-text">
+          <h2 class="cta-banner-title">Need a Custom Hardware Prototype?</h2>
+          <p class="cta-banner-subtitle">
+            From sensor schematic design and PCB layouts to firmware implementation and cloud data streaming, let's collaborate on your next build.
+          </p>
+        </div>
+        <div class="cta-banner-actions">
+          <a href="./contact.html" class="btn btn-cashmere-outline magnetic-btn">
+            <span>Discuss a Project</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer id="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="./assets/logo.png" alt="Logo" class="footer-logo-img" />
+          <p>Kazi Abir Hasan • Embedded Systems &amp; IoT Engineering</p>
+        </div>
+
+        <ul class="footer-nav">
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./about.html">About</a></li>
+          <li><a href="./projects.html">Projects</a></li>
+          <li><a href="./gallery.html">Gallery</a></li>
+          <li><a href="./contact.html">Contact</a></li>
+        </ul>
+
+        <div class="footer-socials">
+          <a href="https://github.com/abir930" target="_blank" rel="noopener" class="social-pill" aria-label="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/abir-hasan-mahin-552a61374/" target="_blank" rel="noopener" class="social-pill" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+          <a href="https://www.facebook.com/abirhasanmahin.mahin/" target="_blank" rel="noopener" class="social-pill" aria-label="Facebook">
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+          <a href="mailto:abirhasanmahin228@gmail.com" class="social-pill" aria-label="Email">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 <strong>Kazi Abir Hasan</strong>. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" aria-label="Back to Top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- Scripts -->
+  <script src="./js/main.js"></script>
+  <script src="./js/projects.js"></script>
+</body>
+</html>

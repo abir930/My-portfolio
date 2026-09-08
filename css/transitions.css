@@ -1,0 +1,191 @@
+/* ==========================================================================
+   NEXT-LEVEL PAGE TRANSITIONS & ANIMATIONS
+   Seamless Curtain Overlay & Micro-Interactions
+   ========================================================================== */
+
+/* Page Curtain Overlay */
+#page-curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.curtain-layer {
+  position: absolute;
+  inset: 0;
+  transform: translateY(100%);
+  transition: transform 0.65s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.curtain-layer-1 {
+  background: var(--cashmere-surface-2);
+  z-index: 10001;
+}
+
+.curtain-layer-2 {
+  background: var(--burgundy);
+  z-index: 10002;
+  transition-delay: 0.08s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.curtain-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-size: 2.8rem;
+  font-weight: 900;
+  letter-spacing: 3px;
+  color: #FFFFFF;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.3s ease;
+}
+
+.curtain-logo-img {
+  height: 68px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  filter: brightness(0) invert(1);
+}
+
+/* Curtain Animating In (Exiting page) */
+body.is-transitioning .curtain-layer-1 {
+  transform: translateY(0%);
+}
+
+body.is-transitioning .curtain-layer-2 {
+  transform: translateY(0%);
+}
+
+body.is-transitioning .curtain-logo {
+  opacity: 1;
+  transform: scale(1);
+  transition-delay: 0.25s;
+}
+
+/* Curtain Leaving (Entering new page) */
+body.page-loaded .curtain-layer-1 {
+  transform: translateY(-100%);
+  transition-delay: 0.1s;
+}
+
+body.page-loaded .curtain-layer-2 {
+  transform: translateY(-100%);
+}
+
+body.page-loaded .curtain-logo {
+  opacity: 0;
+  transform: scale(1.05);
+}
+
+/* ==========================================================================
+   CUSTOM INTERACTIVE CURSOR & GLOW
+   ========================================================================== */
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background-color: var(--burgundy);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+.cursor-follower {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 38px;
+  height: 38px;
+  border: 1.5px solid rgba(107, 29, 47, 0.45);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99998;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease-out, width 0.25s, height 0.25s, border-color 0.25s, background-color 0.25s;
+}
+
+.cursor-hover .cursor-dot {
+  width: 12px;
+  height: 12px;
+  background-color: var(--burgundy-accent);
+}
+
+.cursor-hover .cursor-follower {
+  width: 58px;
+  height: 58px;
+  border-color: var(--burgundy);
+  background-color: var(--burgundy-glow);
+}
+
+@media (pointer: coarse) {
+  .cursor-dot, .cursor-follower {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   ENTRANCE ANIMATIONS & REVEALS
+   ========================================================================== */
+.fade-up {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s var(--ease-smooth), transform 0.7s var(--ease-smooth);
+  will-change: opacity, transform;
+}
+
+.fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.8s var(--ease-smooth);
+}
+
+.fade-in.is-visible {
+  opacity: 1;
+}
+
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }
+.stagger-5 { transition-delay: 0.5s; }
+
+/* Subtle floating badge animation */
+@keyframes softFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.5deg);
+  }
+}
+
+.float-slow {
+  animation: softFloat 6s ease-in-out infinite;
+}
+
+/* Blueprint glow pulse */
+@keyframes blueprintPulse {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.75;
+  }
+}

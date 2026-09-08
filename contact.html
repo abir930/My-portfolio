@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact &amp; Connect | Kazi Abir Hasan</title>
+  <meta name="description"
+    content="Get in touch with Kazi Abir Hasan for embedded systems engineering, IoT development, research collaborations, and professional inquiries." />
+
+  <!-- Preconnect and Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/transitions.css" />
+  <link rel="stylesheet" href="./css/pages/contact.css" />
+</head>
+
+<body>
+  <div class="texture-overlay"></div>
+
+  <!-- Page Curtain Transition -->
+  <div id="page-curtain">
+    <div class="curtain-layer curtain-layer-1"></div>
+    <div class="curtain-layer curtain-layer-2">
+      <div class="curtain-logo">
+        <img src="./assets/logo.png" alt="Logo" class="curtain-logo-img" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header id="site-header">
+    <div class="container nav-container">
+      <a href="./index.html" class="nav-brand">
+        <img src="./assets/logo.png" alt="Logo" class="brand-logo-img" />
+        <div class="brand-meta">
+          <span class="brand-name">Kazi Abir Hasan</span>
+          <span class="brand-title">Embedded Systems Enthusiast</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="./index.html" class="nav-link">Home</a></li>
+          <li><a href="./about.html" class="nav-link">About</a></li>
+          <li><a href="./projects.html" class="nav-link">Projects</a></li>
+          <li><a href="./gallery.html" class="nav-link">Gallery</a></li>
+          <li><a href="./contact.html" class="nav-link active">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="./gallery.html" class="btn-theme-toggle" aria-label="Photo Album" title="Open Photo Gallery"
+          style="text-decoration: none;">
+          <i class="fa-solid fa-images"></i>
+        </a>
+        <a href="./contact.html" class="btn-nav-connect magnetic-btn">
+          <span>Let's Connect</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <button id="hamburger-btn" class="hamburger-btn" aria-label="Open Navigation Drawer">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-drawer" class="mobile-nav-drawer">
+    <a href="./index.html" class="nav-link"><span>Home</span> <i class="fa-solid fa-chevron-right"></i></a>
+    <a href="./about.html" class="nav-link"><span>About</span> <i class="fa-solid fa-chevron-right"></i></a>
+    <a href="./projects.html" class="nav-link"><span>Projects</span> <i class="fa-solid fa-chevron-right"></i></a>
+    <a href="./gallery.html" class="nav-link"><span>Gallery</span> <i class="fa-solid fa-chevron-right"></i></a>
+    <a href="./contact.html" class="nav-link active"><span>Contact</span> <i class="fa-solid fa-chevron-right"></i></a>
+    <div class="mobile-cta-row">
+      <a href="./contact.html" class="btn btn-burgundy" style="width: 100%;">
+        <span>Let's Connect</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+
+  <main>
+    <!-- PAGE HERO -->
+    <section class="page-hero container fade-up">
+      <div class="page-label">Communication &amp; Inquiries</div>
+      <h1 class="page-title">Let's Connect &amp; <span class="accent-burgundy">Collaborate</span></h1>
+      <p class="page-description">
+        Whether you are seeking an embedded systems engineer, discussing an IoT hardware prototype, or proposing a
+        research endeavor, my inbox is open.
+      </p>
+    </section>
+
+    <!-- CONTACT CHANNELS & FORM -->
+    <section class="container">
+      <div class="contact-layout-grid">
+        <!-- Left Side: Channels & Availability -->
+        <div class="contact-sidebar fade-up">
+          <div class="card contact-intro-card">
+            <div class="availability-tag">
+              <span class="pulse-bullet"></span>
+              <span>Available for Opportunities</span>
+            </div>
+
+            <h2 class="contact-intro-title">Have a project or concept in mind?</h2>
+            <p class="contact-intro-desc">
+              I am open to discussions regarding embedded firmware, IoT architecture, edge machine learning projects, or
+              engineering roles. Send a transmission via the form or reach out through direct channels.
+            </p>
+          </div>
+
+          <div class="direct-channels-list">
+            <!-- Phone -->
+            <a href="tel:01959968410" class="channel-card">
+              <div class="channel-left">
+                <div class="channel-icon"><i class="fa-solid fa-phone"></i></div>
+                <div class="channel-meta">
+                  <span class="channel-type">Direct Phone / Call</span>
+                  <span class="channel-value">01959968410</span>
+                </div>
+              </div>
+              <div class="channel-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            </a>
+
+            <!-- Email -->
+            <a href="mailto:abirhasanmahin228@gmail.com" class="channel-card">
+              <div class="channel-left">
+                <div class="channel-icon"><i class="fa-solid fa-envelope"></i></div>
+                <div class="channel-meta">
+                  <span class="channel-type">Direct Email</span>
+                  <span class="channel-value">abirhasanmahin228@gmail.com</span>
+                </div>
+              </div>
+              <div class="channel-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            </a>
+
+            <!-- GitHub -->
+            <a href="https://github.com/abir930" target="_blank" rel="noopener" class="channel-card">
+              <div class="channel-left">
+                <div class="channel-icon"><i class="fa-brands fa-github"></i></div>
+                <div class="channel-meta">
+                  <span class="channel-type">Code Repositories</span>
+                  <span class="channel-value">github.com/abir930</span>
+                </div>
+              </div>
+              <div class="channel-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+            </a>
+
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/abir-hasan-mahin-552a61374/" target="_blank" rel="noopener"
+              class="channel-card">
+              <div class="channel-left">
+                <div class="channel-icon"><i class="fa-brands fa-linkedin"></i></div>
+                <div class="channel-meta">
+                  <span class="channel-type">Professional Network</span>
+                  <span class="channel-value">LinkedIn Profile</span>
+                </div>
+              </div>
+              <div class="channel-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+            </a>
+
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/abirhasanmahin.mahin/" target="_blank" rel="noopener"
+              class="channel-card">
+              <div class="channel-left">
+                <div class="channel-icon"><i class="fa-brands fa-facebook"></i></div>
+                <div class="channel-meta">
+                  <span class="channel-type">Social</span>
+                  <span class="channel-value">Facebook Profile</span>
+                </div>
+              </div>
+              <div class="channel-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Side: EmailJS Form -->
+        <div class="fade-up stagger-1">
+          <div class="card contact-form-card">
+            <div class="form-header">
+              <h2 class="form-title">Send a Transmission</h2>
+              <p class="form-subtitle">Fill in the fields below and I will respond within 24 hours.</p>
+            </div>
+
+            <form id="portfolio-contact-form">
+              <div class="form-grid-2">
+                <div class="form-field-group">
+                  <label class="form-input-label" for="contact-name">Your Name</label>
+                  <input type="text" id="contact-name" class="form-input" placeholder="Enter your name here..."
+                    required />
+                </div>
+                <div class="form-field-group">
+                  <label class="form-input-label" for="contact-email">Email Address</label>
+                  <input type="email" id="contact-email" class="form-input" placeholder="yourname@example.com"
+                    required />
+                </div>
+              </div>
+
+              <div class="form-field-group">
+                <label class="form-input-label" for="contact-subject">Subject</label>
+                <input type="text" id="contact-subject" class="form-input"
+                  placeholder="e.g. Hardware Collaboration / Project Inquiry" />
+              </div>
+
+              <div class="form-field-group">
+                <label class="form-input-label" for="contact-message">Message</label>
+                <textarea id="contact-message" class="form-textarea"
+                  placeholder="Tell me about your hardware goals, research ideas, or engineering timeline..."
+                  required></textarea>
+              </div>
+
+              <button type="submit" id="contact-submit-btn" class="btn btn-burgundy magnetic-btn" style="width: 100%;">
+                <i class="fa-solid fa-paper-plane"></i>
+                <span>Send Message</span>
+              </button>
+
+              <div id="contact-alert" class="form-status-alert"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer id="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="./assets/logo.png" alt="Logo" class="footer-logo-img" />
+          <p>Kazi Abir Hasan • Embedded Systems &amp; IoT Engineering</p>
+        </div>
+
+        <ul class="footer-nav">
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./about.html">About</a></li>
+          <li><a href="./projects.html">Projects</a></li>
+          <li><a href="./gallery.html">Gallery</a></li>
+          <li><a href="./contact.html">Contact</a></li>
+        </ul>
+
+        <div class="footer-socials">
+          <a href="https://github.com/abir930" target="_blank" rel="noopener" class="social-pill" aria-label="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/abir-hasan-mahin-552a61374/" target="_blank" rel="noopener"
+            class="social-pill" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+          <a href="https://www.facebook.com/abirhasanmahin.mahin/" target="_blank" rel="noopener" class="social-pill"
+            aria-label="Facebook">
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+          <a href="mailto:abirhasanmahin228@gmail.com" class="social-pill" aria-label="Email">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 <strong>Kazi Abir Hasan</strong>. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" aria-label="Back to Top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- Scripts -->
+  <script src="./js/main.js"></script>
+  <script src="./js/contact.js"></script>
+</body>
+
+</html>
